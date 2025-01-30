@@ -3,11 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bgr5it3klxcmf"
-valid=false
+path="res://.godot/imported/Handwritten.otf-d7fadb3518157a8b7b7aca2582408b43.fontdata"
 
 [deps]
 
 source_file="res://UI/Handwritten.otf"
+dest_files=["res://.godot/imported/Handwritten.otf-d7fadb3518157a8b7b7aca2582408b43.fontdata"]
 
 [params]
 

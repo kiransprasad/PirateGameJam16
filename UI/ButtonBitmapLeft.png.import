@@ -3,11 +3,12 @@
 importer="bitmap"
 type="BitMap"
 uid="uid://dxhi7svwyf7os"
-valid=false
+path="res://.godot/imported/ButtonBitmapLeft.png-5fdf702ffd1df7d722a3988b3de64095.res"
 
 [deps]
 
 source_file="res://UI/ButtonBitmapLeft.png"
+dest_files=["res://.godot/imported/ButtonBitmapLeft.png-5fdf702ffd1df7d722a3988b3de64095.res"]
 
 [params]
 

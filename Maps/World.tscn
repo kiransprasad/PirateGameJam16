@@ -1,7 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://cco1d6tc1yo8e"]
+[gd_scene load_steps=9 format=3 uid="uid://cco1d6tc1yo8e"]
 
-[ext_resource type="Texture2D" uid="uid://cd3i8h7q6vb51" path="res://Sprites/FloorDark.png" id="1_d2bag"]
-[ext_resource type="Texture2D" uid="uid://b720l74mfr12s" path="res://Sprites/path.png" id="2_syamy"]
 [ext_resource type="PackedScene" uid="uid://blt5jbc418oer" path="res://Prefabs/Slime.tscn" id="3_yxoqv"]
 [ext_resource type="PackedScene" uid="uid://7ba7qdy1f0uo" path="res://Prefabs/Wraith.tscn" id="4_2ns1p"]
 [ext_resource type="PackedScene" uid="uid://cwd0wriv0fk8v" path="res://Prefabs/Player.tscn" id="5_yqin0"]
@@ -24,7 +22,6 @@ y_sort_enabled = true
 z_index = -10
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_d2bag")
 region_enabled = true
 region_rect = Rect2(0, 0, 40000, 40000)
 
@@ -33,7 +30,6 @@ z_index = -1
 texture_repeat = 2
 width = 20.0
 default_color = Color(0, 0.724775, 0.0537941, 1)
-texture = ExtResource("2_syamy")
 texture_mode = 1
 joint_mode = 1
 

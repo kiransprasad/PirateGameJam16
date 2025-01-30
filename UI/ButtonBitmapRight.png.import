@@ -3,11 +3,12 @@
 importer="bitmap"
 type="BitMap"
 uid="uid://dt2pyntilwotv"
-valid=false
+path="res://.godot/imported/ButtonBitmapRight.png-d3ac04504720ed73b892254342910f7b.res"
 
 [deps]
 
 source_file="res://UI/ButtonBitmapRight.png"
+dest_files=["res://.godot/imported/ButtonBitmapRight.png-d3ac04504720ed73b892254342910f7b.res"]
 
 [params]
 

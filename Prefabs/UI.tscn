@@ -76,6 +76,32 @@ scale = Vector2(0.443, 0.443)
 value = 100.0
 texture_progress = ExtResource("6_4xu3d")
 
+[node name="Score" type="Label" parent="CanvasLayer/UI_BARS"]
+offset_left = 1230.0
+offset_top = 14.0
+offset_right = 1389.0
+offset_bottom = 117.0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 100
+text = "Score:"
+vertical_alignment = 1
+justification_flags = 0
+paragraph_separator = " "
+
+[node name="ScoreCounter" type="Label" parent="CanvasLayer/UI_BARS"]
+offset_left = 1234.0
+offset_top = 106.0
+offset_right = 1432.0
+offset_bottom = 209.0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 100
+text = "XXXXXm"
+vertical_alignment = 1
+justification_flags = 0
+paragraph_separator = " "
+
 [node name="UI_SKILLS" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
