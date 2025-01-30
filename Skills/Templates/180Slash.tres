@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillResource" load_steps=3 format=3 uid="uid://djuuevn0b6pex"]
+
+[ext_resource type="Script" uid="uid://wqj6a0k8baq7" path="res://Scripts/Skill.gd" id="1_b75i6"]
+[ext_resource type="PackedScene" uid="uid://bslscwoffcp7d" path="res://Skills/Scenes/180Slash.tscn" id="2_v56pu"]
+
+[resource]
+script = ExtResource("1_b75i6")
+name = "180 Slash"
+colour = Color(1, 1, 1, 1)
+cooldown = 0.0
+max_cooldown = 20.0
+template = ExtResource("2_v56pu")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://inf0lbn0c1u6"]
+
+[ext_resource type="Script" uid="uid://0hjgyjr6vnhf" path="res://Scripts/UseSkill.gd" id="1_y367q"]
+[ext_resource type="Texture2D" uid="uid://dui4s26fqha37" path="res://Sprites/Skills/HeavySlash.png" id="2_y367q"]
+
+[node name="HeavySlash" type="Node2D"]
+script = ExtResource("1_y367q")
+KNOCKBACK = Vector2(3, 0)
+RECOIL = Vector2(0, -5)
+
+[node name="SkillAim" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_y367q")
+
+[node name="SkillIcon" type="Sprite2D" parent="SkillAim"]
+position = Vector2(350, 0)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(55, -178, 53, 145, 423, 472, 617, 149, 614, -196, 401, -484)

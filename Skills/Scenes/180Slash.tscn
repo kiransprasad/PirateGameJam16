@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bslscwoffcp7d"]
+
+[ext_resource type="Script" uid="uid://0hjgyjr6vnhf" path="res://Scripts/UseSkill.gd" id="1_g4amd"]
+[ext_resource type="Texture2D" uid="uid://dq38li5enms3" path="res://Sprites/Skills/180Slash.png" id="2_g4amd"]
+
+[node name="180Slash" type="Node2D"]
+script = ExtResource("1_g4amd")
+KNOCKBACK = Vector2(7, 0)
+
+[node name="SkillAim" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_g4amd")
+
+[node name="SkillIcon" type="Sprite2D" parent="SkillAim"]
+position = Vector2(350, 0)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-47, 559, 224, 537, 493, 384, 602, 151, 598, -220, 446, -468, 200, -595, -49, -627)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6yly8wn1cpml"]
+
+[ext_resource type="Script" uid="uid://drd1wt38156" path="res://Scripts/Fire.gd" id="1_v3fox"]
+[ext_resource type="Texture2D" uid="uid://l2bdso5or0yx" path="res://Sprites/Floor.png" id="2_sop5g"]
+[ext_resource type="Texture2D" uid="uid://cuglhwj4rwogu" path="res://Sprites/CircleMask.png" id="3_0i05d"]
+[ext_resource type="Texture2D" uid="uid://cen5htanq7y5e" path="res://Sprites/FireSpriteSheet.png" id="4_ysnid"]
+[ext_resource type="Script" uid="uid://dowwwe5jfg6eb" path="res://Scripts/Animation.gd" id="5_um161"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31lp8"]
+radius = 1.0
+
+[node name="Fire" type="Area2D"]
+z_index = -9
+script = ExtResource("1_v3fox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_31lp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+clip_children = 1
+scale = Vector2(-0.102, -0.102)
+texture = ExtResource("3_0i05d")
+region_rect = Rect2(0, 0, 5000, 5000)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(1, 0, 0, 1)
+texture_repeat = 2
+scale = Vector2(-0.5, -0.5)
+texture = ExtResource("2_sop5g")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
+
+[node name="FlameSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_ysnid")
+offset = Vector2(0, -225)
+hframes = 8
+script = ExtResource("5_um161")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

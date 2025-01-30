@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://byu3b3wol61oa"]
+
+[ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/barrel.tscn" id="1_nehhy"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rcpwg"]
+size = Vector2(3000, 1500)
+
+[node name="0" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+texture = SubResource("PlaceholderTexture2D_rcpwg")
+offset = Vector2(1500, 750)
+
+[node name="Barrel" parent="." instance=ExtResource("1_nehhy")]
+position = Vector2(1238, 670)
+
+[node name="Barrel2" parent="." instance=ExtResource("1_nehhy")]
+position = Vector2(1584, 670)

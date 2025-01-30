@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4ae8yfboqafg"]
+
+[ext_resource type="Script" uid="uid://b37te2f3hlqfh" path="res://Scripts/Ice.gd" id="1_fw0nj"]
+[ext_resource type="Texture2D" uid="uid://c5u4icebklplc" path="res://Sprites/Skills/Effects/IceSpike.png" id="2_n65ol"]
+[ext_resource type="Script" uid="uid://ds1epq6iee2vu" path="res://Scripts/Destructable.gd" id="3_n65ol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_njkoh"]
+radius = 85.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s5l16"]
+polygon = PackedVector2Array(-316, 256, -292, 168, -180, -50, -158, -20, -104, -306, 14, -206, 124, -246, 240, 248, -12, 324)
+
+[sub_resource type="Gradient" id="Gradient_s5l16"]
+offsets = PackedFloat32Array(0.00902062, 0.265464, 1)
+colors = PackedColorArray(0, 0.980392, 0.980392, 1, 0, 0.860552, 0.860552, 0.877763, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f56mf"]
+gradient = SubResource("Gradient_s5l16")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Ice" type="Node2D"]
+script = ExtResource("1_fw0nj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_n65ol")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Ice"]]
+collision_layer = 3
+script = ExtResource("3_n65ol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 100)
+shape = SubResource("CircleShape2D_njkoh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+scale = Vector2(0.5, 0.5)
+occluder = SubResource("OccluderPolygon2D_s5l16")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 125)
+vertices = PackedVector2Array(-225, -225, -150, 250, 150, 250, 225, -225)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+color = Color(0, 1, 1, 1)
+energy = 20.0
+texture = ExtResource("2_n65ol")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+z_index = 1
+position = Vector2(-11, 0)
+color = Color(0, 1, 1, 1)
+texture = SubResource("GradientTexture2D_f56mf")
+texture_scale = 10.0

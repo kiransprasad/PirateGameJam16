@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://blt5jbc418oer"]
+
+[ext_resource type="Script" uid="uid://cxc0tor6iwt30" path="res://Scripts/Slime.gd" id="2_3ocac"]
+[ext_resource type="Texture2D" uid="uid://bx1pwy2pxgxj8" path="res://UI/enemySightYellow.png" id="2_cpj76"]
+[ext_resource type="Texture2D" uid="uid://coavv27x5wy4y" path="res://UI/enemySightRed.png" id="3_13k44"]
+[ext_resource type="Texture2D" uid="uid://cxrblygople57" path="res://UI/enemyAttackYellow.png" id="4_wan3o"]
+[ext_resource type="Texture2D" uid="uid://c0d161cb7065h" path="res://UI/enemyAttackRed.png" id="5_hq1ur"]
+[ext_resource type="Texture2D" uid="uid://c658vde16s3yb" path="res://Sprites/SlimeSpriteSheet.png" id="6_cpj76"]
+[ext_resource type="Texture2D" uid="uid://3n3tb6dd736y" path="res://UI/OtherHPBar.png" id="6_wan3o"]
+[ext_resource type="Texture2D" uid="uid://nhgxoh6jsqc7" path="res://UI/OtherHPValue.png" id="7_hq1ur"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jg4dh"]
+radius = 100.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hpb7u"]
+polygon = PackedVector2Array(-286, 268, -340, 196, -336, 120, -214, -20, -132, -192, -4, -298, 52, -292, 206, -128, 212, 16, 348, 232, 106, 340, -30, 342)
+
+[node name="Slime" type="CharacterBody2D" groups=["Enemy", "Slime"]]
+script = ExtResource("2_3ocac")
+
+[node name="SightIcon" type="TextureProgressBar" parent="."]
+visible = false
+show_behind_parent = true
+z_index = 11
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.83
+offset_top = -350.0
+offset_right = 379.17
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+step = 0.01
+texture_under = ExtResource("2_cpj76")
+texture_progress = ExtResource("3_13k44")
+
+[node name="AttackIcon" type="TextureProgressBar" parent="."]
+visible = false
+show_behind_parent = true
+z_index = 11
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.67
+offset_top = -385.0
+offset_right = 463.33
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+step = 0.01
+texture_under = ExtResource("4_wan3o")
+texture_progress = ExtResource("5_hq1ur")
+
+[node name="HPBar" type="TextureProgressBar" parent="."]
+visible = false
+show_behind_parent = true
+z_index = 11
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -220.0
+offset_right = 1043.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+step = 0.01
+value = 100.0
+texture_over = ExtResource("6_wan3o")
+texture_progress = ExtResource("7_hq1ur")
+tint_over = Color(0.588235, 0, 0, 1)
+tint_progress = Color(0.784314, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_cpj76")
+hframes = 8
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 53)
+shape = SubResource("CircleShape2D_jg4dh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+scale = Vector2(0.5, 0.5)
+occluder = SubResource("OccluderPolygon2D_hpb7u")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 25.0
+target_desired_distance = 500.0
+path_max_distance = 200.0
+debug_use_custom = true
+debug_path_custom_color = Color(0.737948, 0.533785, 1, 1)

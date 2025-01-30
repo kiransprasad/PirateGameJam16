@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=7 format=3 uid="uid://b4cu1aoulk2sr"]
+
+[ext_resource type="Script" uid="uid://cetwv38jqq816" path="res://Scripts/Stats.gd" id="1_mjmqq"]
+[ext_resource type="Script" uid="uid://wqj6a0k8baq7" path="res://Scripts/Skill.gd" id="2_8fci7"]
+[ext_resource type="Resource" uid="uid://dnw7xpw218vg8" path="res://Skills/Templates/BasicSlash.tres" id="3_kk5vr"]
+[ext_resource type="Resource" uid="uid://dit7nt5glrwxq" path="res://Skills/Templates/HeavySlash.tres" id="4_wt14f"]
+[ext_resource type="Resource" uid="uid://bffxx14s0ex4t" path="res://Skills/Templates/ColdSnap.tres" id="5_kk5vr"]
+[ext_resource type="Resource" uid="uid://ex6dbnph2n2j" path="res://Skills/Templates/FlameBurst.tres" id="6_kk5vr"]
+
+[resource]
+script = ExtResource("1_mjmqq")
+confidence = 0.0
+experience = 0.0
+bond = 100.0
+panic = 0.0
+skills = Array[ExtResource("2_8fci7")]([ExtResource("3_kk5vr"), ExtResource("4_wt14f"), ExtResource("5_kk5vr"), ExtResource("6_kk5vr")])
+selectedSkill = -1

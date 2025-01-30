@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://btc652mpgqb2r"]
+
+[ext_resource type="Script" uid="uid://0hjgyjr6vnhf" path="res://Scripts/UseSkill.gd" id="1_brgvv"]
+[ext_resource type="Texture2D" uid="uid://c3j7in5h5axa7" path="res://Sprites/Skills/FlameBurst.png" id="2_brgvv"]
+[ext_resource type="Texture2D" uid="uid://1k836o0el84c" path="res://Sprites/Skills/Icons/FireIcon.png" id="3_7ball"]
+[ext_resource type="Script" uid="uid://lrtsx64mcg5x" path="res://Scripts/LockRotation.gd" id="4_pd4q6"]
+
+[node name="FlameBurst" type="Node2D"]
+script = ExtResource("1_brgvv")
+DAMAGE = 5
+KNOCKBACK = Vector2(10, 0)
+RECOIL = Vector2(-5, 0)
+FIRE = Array[Vector3]([Vector3(384, 0, 512)])
+
+[node name="SkillAim" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_brgvv")
+
+[node name="SkillIcon" type="Sprite2D" parent="SkillAim"]
+position = Vector2(169.5, -0.5)
+texture = ExtResource("3_7ball")
+script = ExtResource("4_pd4q6")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(24, 0, 384, 464, 536, 216, 560, 0, 528, -232, 376, -488)

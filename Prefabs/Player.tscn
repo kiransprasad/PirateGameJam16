@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://cwd0wriv0fk8v"]
+
+[ext_resource type="Script" uid="uid://cv14x1nvc3f10" path="res://Scripts/Player.gd" id="1_shmu5"]
+[ext_resource type="Texture2D" uid="uid://cgu26o8gkarln" path="res://Sprites/PeasantSpriteSheet.png" id="2_vxq8l"]
+[ext_resource type="Texture2D" uid="uid://bkox74wg2utu7" path="res://Sprites/Sword.png" id="3_gg3t4"]
+[ext_resource type="PackedScene" uid="uid://cmqjboxqlxunf" path="res://Prefabs/UI.tscn" id="4_javds"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h6sgt"]
+light_mode = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o4r2g"]
+radius = 50.0
+height = 250.0
+
+[sub_resource type="Gradient" id="Gradient_dxp8i"]
+offsets = PackedFloat32Array(0.00649351, 0.474026, 0.814935)
+colors = PackedColorArray(0, 0, 0, 0.12549, 0, 0, 0, 0.901961, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q8wtd"]
+gradient = SubResource("Gradient_dxp8i")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_t54sf"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jae0v"]
+gradient = SubResource("Gradient_t54sf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3pijb"]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_shmu5")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 75.0
+target_desired_distance = 50.0
+path_max_distance = 2500.0
+radius = 700.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_h6sgt")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vxq8l")
+hframes = 5
+vframes = 3
+frame = 9
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -670.0
+offset_top = -1125.0
+offset_right = -615.0
+offset_bottom = -1085.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(15, 15)
+size_flags_horizontal = 3
+text = "Text"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Sword" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(342, -78)
+rotation = 0.814139
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("3_gg3t4")
+offset = Vector2(0, -275)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_o4r2g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.01, 0.01)
+
+[node name="UI" parent="Camera2D" instance=ExtResource("4_javds")]
+z_index = 12
+
+[node name="Vingette" type="Sprite2D" parent="Camera2D"]
+z_index = 10
+position = Vector2(-39.5, 6.50012)
+scale = Vector2(185, 105)
+texture = SubResource("GradientTexture2D_q8wtd")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visibility_layer = 3
+position = Vector2(0, -50)
+scale = Vector2(185, 105)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_filter_smooth = 3.0
+texture = SubResource("GradientTexture2D_jae0v")
+
+[node name="Sight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+scale = Vector2(112.5, 75)
+shape = SubResource("CircleShape2D_3pijb")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 150)
+radius = 150.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
+[connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]

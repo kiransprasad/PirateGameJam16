@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cikqk52nxfsq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ptmgb"]
+size = Vector2(4500, 4500)
+
+[node name="0" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_ptmgb")
+offset = Vector2(2250, 2250)
