@@ -12,7 +12,7 @@ var tileNum = 0
 
 func _ready() -> void:
 	
-	currScore = 999
+	currScore = 0
 	#score.set_meta("score", currScore)
 	
 	# Get the player location
@@ -32,7 +32,10 @@ func _ready() -> void:
 	
 	# Generate the 9 tiles
 	for i in 9:
-		tiles.append(generateTile(i))
+		if i == 4:
+			tiles.append(generateTile(i))
+		else:
+			tiles.append(null)
 
 func _physics_process(delta: float) -> void:
 	

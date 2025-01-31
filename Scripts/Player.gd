@@ -48,8 +48,7 @@ func _ready() -> void:
 	stats.selectedSkill = -1
 	
 	# Start Menu
-	pauseMenu.setMenu(0)
-	get_tree().paused = true
+	pauseMenu.setMenu(-2)
 
 func _physics_process(delta):
 	
@@ -75,7 +74,6 @@ func _physics_process(delta):
 		knockbackVector *= 0.75
 	
 	move_and_slide()
-	
 	
 
 func changeState():
@@ -228,4 +226,3 @@ func gainExp(expAmt : float) -> void:
 
 func die():
 	pauseMenu.setMenu(-1)
-	get_tree().paused = true

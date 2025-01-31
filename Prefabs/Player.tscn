@@ -22,7 +22,7 @@ gradient = SubResource("Gradient_dxp8i")
 width = 32
 height = 32
 fill = 1
-fill_from = Vector2(0.5, 0.5)
+fill_from = Vector2(0.5, 0.6)
 
 [sub_resource type="Gradient" id="Gradient_t54sf"]
 offsets = PackedFloat32Array(0)
@@ -86,6 +86,7 @@ offset = Vector2(0, -275)
 shape = SubResource("CapsuleShape2D_o4r2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -250)
 zoom = Vector2(0.2, 0.2)
 
 [node name="UI" parent="Camera2D" instance=ExtResource("4_javds")]
@@ -93,7 +94,7 @@ z_index = 12
 
 [node name="Vingette" type="Sprite2D" parent="Camera2D"]
 z_index = 10
-position = Vector2(-39.5, 6.50012)
+position = Vector2(-39.5, -212)
 scale = Vector2(185, 105)
 texture = SubResource("GradientTexture2D_q8wtd")
 
