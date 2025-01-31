@@ -1,3 +1,13 @@
 res://Prefabs/Structural/SideWall.tscn
 res://score.tres
 res://Prefabs/Structural/Chest.tscn
+res://Prefabs/UI.tscn
+res://Prefabs/SkillPreview.tscn
+res://Maps/Structures/0/0.tscn
+res://Maps/Structures/0/1.tscn
+res://Maps/Structures/7/0.tscn
+res://Prefabs/Structural/Wonder.tscn
+res://Prefabs/Structural/Door.tscn
+res://Prefabs/Structural/Gate.tscn
+res://Prefabs/Structural/Lever.tscn
+res://Prefabs/Structural/SideDoor.tscn
