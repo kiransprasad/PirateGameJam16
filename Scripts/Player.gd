@@ -6,7 +6,7 @@ var currState = STATE.PANIC
 
 # Movement Variables
 var targetQueue = []
-const SPEED = 750
+const SPEED = 1750
 @onready var navigationAgent = $NavigationAgent2D
 var navLine = null
 var knockbackVector = Vector2.ZERO
@@ -83,6 +83,8 @@ func changeState():
 		if navigationAgent.is_navigation_finished():
 			if targetQueue.back() is Vector2:
 				targetQueue.pop_back()
+			elif not targetQueue:
+				$Sight/CollisionShape2D.shape.radius += 1
 			else:
 				interactIcon.set_visible(true)
 				interactIcon.value = 0
@@ -94,7 +96,7 @@ func changeState():
 			
 			var returnVal = targetQueue.pop_back().interact()
 			if returnVal is Vector2:
-				targetQueue.push_front(returnVal)
+				targetQueue = [returnVal]
 			
 			currState = STATE.ADVANCE
 	elif currState == STATE.PANIC:
@@ -108,9 +110,9 @@ func performState(delta):
 			if targetQueue.back() is Vector2:
 				navigationAgent.target_position = targetQueue.back()
 			else:
-				navigationAgent.target_position = targetQueue.back().global_position
+				navigationAgent.target_position = targetQueue.back().global_position + Vector2(0, 400)
 		else:
-			navigationAgent.target_position = Vector2(global_position.x + 1, -9000)
+			navigationAgent.target_position = Vector2(0, -8000)
 		velocity = global_position.direction_to(navigationAgent.get_next_path_position()) * SPEED
 	elif currState == STATE.INTERACT:
 		interactIcon.value += delta * 100/INTERACT_SECS
@@ -202,8 +204,9 @@ func _on_sight_body_exited(body: Node2D) -> void:
 func _on_sight_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("Interactable")):
 		area.get_child(0).queue_free()
-		navigationAgent.target_position = area.global_position
+		navigationAgent.target_position = area.global_position + Vector2(0, 400)
 		if navigationAgent.is_target_reachable():
+			$Sight/CollisionShape2D.shape.radius = 15
 			targetQueue.push_front(area)
 
 func damage(dmgTaken : float) -> void:
