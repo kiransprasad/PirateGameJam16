@@ -1,4 +1,3 @@
-res://Prefabs/Structural/Wonder.tscn
-res://Prefabs/Structural/Door.tscn
-res://Prefabs/Structural/Gate.tscn
-res://Prefabs/Structural/Lever.tscn
+res://Prefabs/Structural/SideWall.tscn
+res://score.tres
+res://Prefabs/Structural/Chest.tscn

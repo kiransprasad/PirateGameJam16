@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5oxasowvfjl8"]
+
+[ext_resource type="Texture2D" uid="uid://ce2gvyb6rl785" path="res://Sprites/SideWall.png" id="1_gbce2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehmqv"]
+radius = 100.0
+height = 2000.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1ulop"]
+polygon = PackedVector2Array(-2072, -3445.33, -2058, 700, -1797.33, 704, -1781.33, -3418.67)
+
+[node name="SideWall" type="Node2D"]
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gbce2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 33.3333)
+shape = SubResource("CapsuleShape2D_ehmqv")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(972, 681.333)
+scale = Vector2(0.5, 0.5)
+occluder = SubResource("OccluderPolygon2D_1ulop")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 228)
+vertices = PackedVector2Array(-149.333, -1264, -156, 872, 166.667, 872, 160, -1250.67)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
