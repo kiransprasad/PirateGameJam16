@@ -50,7 +50,7 @@ position = Vector2(26, 721)
 position = Vector2(759, 1246)
 
 [node name="SideWall" parent="Door" instance=ExtResource("5_1gm7o")]
-position = Vector2(970.667, 1308)
+position = Vector2(970.667, 682.667)
 scale = Vector2(1, 1)
 
 [node name="Door2" parent="." instance=ExtResource("4_3trl4")]
