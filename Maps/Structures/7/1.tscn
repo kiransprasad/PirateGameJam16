@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="2_311ah"]
 [ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_6ptos"]
 [ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="4_0b65l"]
-[ext_resource type="PackedScene" path="res://Prefabs/Structural/Chest.tscn" id="5_1xxf4"]
+[ext_resource type="PackedScene" uid="uid://opr8r4icvii2" path="res://Prefabs/Structural/Chest.tscn" id="5_1xxf4"]
 [ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="6_16pwh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y7wcg"]

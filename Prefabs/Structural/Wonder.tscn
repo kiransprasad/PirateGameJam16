@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://466qokpwyila" path="res://Sprites/Wall.png" id="1_ehmqv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehmqv"]
-radius = 200.0
-height = 2000.0
+radius = 100.0
+height = 1900.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1ulop"]
 polygon = PackedVector2Array(-2062, -708, -2058, 700, 2060, 700, 2060, -712)
@@ -20,7 +20,7 @@ texture = ExtResource("1_ehmqv")
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 175)
+position = Vector2(-1.33333, 200)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ehmqv")
 
@@ -32,7 +32,7 @@ occluder = SubResource("OccluderPolygon2D_1ulop")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 228)
-vertices = PackedVector2Array(-1225, -225, -1150, 250, 1150, 250, 1225, -225)
+vertices = PackedVector2Array(-1028, -225.333, -1024, 117.333, 1032, 120, 1032, -226.667)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false

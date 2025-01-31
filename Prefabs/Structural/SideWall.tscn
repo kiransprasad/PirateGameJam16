@@ -31,7 +31,7 @@ occluder = SubResource("OccluderPolygon2D_1ulop")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 228)
-vertices = PackedVector2Array(-120, -1264, -120, 872, 120, 872, 120, -1250.67)
+vertices = PackedVector2Array(-62.6667, -1266.67, -54.6667, 805.333, 72, 802.667, 77.3333, -1253.33)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false

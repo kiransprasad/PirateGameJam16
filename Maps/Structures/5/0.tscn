@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://do5bkn3exdife"]
 
 [ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="1_q8w6n"]
-[ext_resource type="PackedScene" path="res://Prefabs/Structural/SideWall.tscn" id="2_2saoe"]
+[ext_resource type="PackedScene" uid="uid://bjpiboewmjw6d" path="res://Prefabs/Structural/SideWall.tscn" id="2_2saoe"]
 [ext_resource type="PackedScene" uid="uid://cqveosi72dsyf" path="res://Prefabs/Structural/Wonder.tscn" id="3_eesfn"]
 [ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="4_kkb1m"]
 [ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="5_vlhuu"]

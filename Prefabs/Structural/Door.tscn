@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cy7nuhxu0u80w" path="res://Sprites/WallDoor.png" id="1_ugn3q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehmqv"]
-radius = 200.0
+radius = 125.0
 height = 750.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ugn3q"]
@@ -17,6 +17,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ugn3q")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 25)
 collision_layer = 3
 
 [node name="CollisionShape2DL" type="CollisionShape2D" parent="StaticBody2D"]
@@ -37,7 +38,7 @@ occluder = SubResource("OccluderPolygon2D_ugn3q")
 [node name="NavigationObstacle2DL" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(-625, 228)
-vertices = PackedVector2Array(-600, -225, -550, 248, 550, 250, 550, -225)
+vertices = PackedVector2Array(-405.667, -229.333, -403, 124, 433, 116, 423.667, -224)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false
@@ -45,7 +46,7 @@ avoidance_enabled = false
 [node name="NavigationObstacle2DR" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(625, 228)
-vertices = PackedVector2Array(-550, -225, -550, 250, 550, 257, 600, -225)
+vertices = PackedVector2Array(-494.333, -226.667, -489, 109.333, 404.333, 122.667, 404.333, -226.667)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false

@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="1_jwqbh"]
 [ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="2_21aqg"]
-[ext_resource type="PackedScene" path="res://Prefabs/Structural/SideDoor.tscn" id="3_b5plb"]
+[ext_resource type="PackedScene" uid="uid://c5oxasowvfjl8" path="res://Prefabs/Structural/SideDoor.tscn" id="3_b5plb"]
 [ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="4_3trl4"]
-[ext_resource type="PackedScene" path="res://Prefabs/Structural/SideWall.tscn" id="5_1gm7o"]
+[ext_resource type="PackedScene" uid="uid://bjpiboewmjw6d" path="res://Prefabs/Structural/SideWall.tscn" id="5_1gm7o"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_euaci"]
 size = Vector2(3000, 1500)

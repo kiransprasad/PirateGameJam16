@@ -35,7 +35,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3pijb"]
-radius = 15.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_shmu5")
@@ -43,7 +42,7 @@ script = ExtResource("1_shmu5")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 75.0
 target_desired_distance = 50.0
-path_max_distance = 2500.0
+path_max_distance = 1000.0
 radius = 700.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -55,7 +54,6 @@ vframes = 3
 frame = 9
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
-visible = false
 z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
@@ -86,8 +84,9 @@ offset = Vector2(0, -275)
 shape = SubResource("CapsuleShape2D_o4r2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 offset = Vector2(0, -250)
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.02, 0.02)
 
 [node name="UI" parent="Camera2D" instance=ExtResource("4_javds")]
 z_index = 12
@@ -108,17 +107,11 @@ shadow_filter_smooth = 3.0
 texture = SubResource("GradientTexture2D_jae0v")
 
 [node name="Sight" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
 scale = Vector2(112.5, 75)
 shape = SubResource("CircleShape2D_3pijb")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-y_sort_enabled = true
-position = Vector2(0, 150)
-radius = 150.0
-affect_navigation_mesh = true
-carve_navigation_mesh = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 visible = false

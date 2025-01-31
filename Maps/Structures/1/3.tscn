@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="1_hxks2"]
 [ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="2_n3hxj"]
 [ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_qu6sw"]
-[ext_resource type="PackedScene" path="res://Prefabs/Structural/SideDoor.tscn" id="4_4qqnk"]
+[ext_resource type="PackedScene" uid="uid://c5oxasowvfjl8" path="res://Prefabs/Structural/SideDoor.tscn" id="4_4qqnk"]
 [ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="5_d2eel"]
 [ext_resource type="PackedScene" uid="uid://cqveosi72dsyf" path="res://Prefabs/Structural/Wonder.tscn" id="6_4tnhd"]
 [ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="7_bj1rs"]

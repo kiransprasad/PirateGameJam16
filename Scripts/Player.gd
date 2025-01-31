@@ -108,9 +108,9 @@ func performState(delta):
 			if targetQueue.back() is Vector2:
 				navigationAgent.target_position = targetQueue.back()
 			else:
-				navigationAgent.target_position = targetQueue.back().global_position
+				navigationAgent.target_position = targetQueue.back().global_position + Vector2(0, 500)
 		else:
-			navigationAgent.target_position = Vector2(global_position.x + 1, -9000)
+			navigationAgent.target_position = Vector2(0, -8000)
 		velocity = global_position.direction_to(navigationAgent.get_next_path_position()) * SPEED
 	elif currState == STATE.INTERACT:
 		interactIcon.value += delta * 100/INTERACT_SECS
