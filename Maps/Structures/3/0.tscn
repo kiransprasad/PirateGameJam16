@@ -16,6 +16,7 @@ size = Vector2(4500, 4500)
 metadata/_edit_horizontal_guides_ = [2303.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("PlaceholderTexture2D_ptmgb")
 offset = Vector2(2250, 2250)
 

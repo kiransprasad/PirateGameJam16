@@ -16,6 +16,7 @@ size = Vector2(3000, 3000)
 [node name="0" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.501961, 1, 1, 1)
 texture = SubResource("PlaceholderTexture2D_k8vmu")
 offset = Vector2(1500, 1500)
