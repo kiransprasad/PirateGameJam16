@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://tyv3k4pqma25" path="res://Sprites/SideDoor.png" id="1_2skpa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehmqv"]
-radius = 100.0
-height = 500.0
+radius = 40.0
+height = 550.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1ulop"]
 polygon = PackedVector2Array(-2069.33, -629.333, -2058, 700, -1797.33, 704, -1786.67, -632)
@@ -24,7 +24,7 @@ position = Vector2(0, -669.333)
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8, 33.3333)
+position = Vector2(8, 3.99968)
 shape = SubResource("CapsuleShape2D_ehmqv")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -48,7 +48,15 @@ occluder = SubResource("OccluderPolygon2D_gbce2")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 228)
-vertices = PackedVector2Array(-149.333, -1264, -156, 872, 166.667, 872, 160, -1250.67)
+vertices = PackedVector2Array(-105.333, 152, -98.6667, 829.333, 124, 832, 116, 152)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 228)
+vertices = PackedVector2Array(-101.333, -1262.67, -97.3333, -580, 125.333, -585.333, 129.333, -1258.67)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false

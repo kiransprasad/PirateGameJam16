@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmqjboxqlxunf"]
+[gd_scene load_steps=21 format=3 uid="uid://cmqjboxqlxunf"]
 
 [ext_resource type="Texture2D" uid="uid://carltfp7wnr3o" path="res://UI/UI_Bars.png" id="1_fgnch"]
 [ext_resource type="Script" uid="uid://1w2fav4mqsw6" path="res://Scripts/UIBars.gd" id="2_f40nl"]
@@ -15,9 +15,11 @@
 [ext_resource type="BitMap" uid="uid://dt2pyntilwotv" path="res://UI/ButtonBitmapRight.png" id="10_svoaq"]
 [ext_resource type="FontFile" uid="uid://bgr5it3klxcmf" path="res://UI/Handwritten.otf" id="10_vjqvw"]
 [ext_resource type="Script" uid="uid://6sovrg7qhl3q" path="res://Scripts/Pause.gd" id="15_4xu3d"]
+[ext_resource type="Texture2D" uid="uid://y6metwhbi0kj" path="res://UI/SteelThyselfTitleScreen.png" id="16_dowr5"]
 [ext_resource type="Texture2D" uid="uid://ctvrkxq5yf311" path="res://UI/PlayButton.png" id="16_t64iv"]
 [ext_resource type="Texture2D" uid="uid://iydvewsokris" path="res://UI/SkipButton.png" id="17_ibbdg"]
 [ext_resource type="Texture2D" uid="uid://ch8iwbr40uxte" path="res://UI/RestartButton.png" id="17_r42p4"]
+[ext_resource type="Texture2D" uid="uid://blqbe8trfim1l" path="res://UI/HowToButton.png" id="18_vn3xc"]
 
 [node name="UI" type="Control"]
 top_level = true
@@ -58,12 +60,13 @@ texture_progress = ExtResource("3_cthsg")
 [node name="HPBar" type="TextureProgressBar" parent="CanvasLayer/UI_BARS"]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 20.0
-offset_top = 77.0
-offset_right = 456.0
-offset_bottom = 264.0
+offset_left = 22.7273
+offset_top = 75.7576
+offset_right = 458.727
+offset_bottom = 262.758
 value = 100.0
 texture_progress = ExtResource("4_svoaq")
+tint_progress = Color(1, 0, 0, 1)
 
 [node name="EXPBar" type="TextureProgressBar" parent="CanvasLayer/UI_BARS"]
 show_behind_parent = true
@@ -275,11 +278,13 @@ offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("15_4xu3d")
 
-[node name="StartMenu" type="Control" parent="CanvasLayer/Pause"]
+[node name="StartMenu" type="TextureRect" parent="CanvasLayer/Pause"]
 visible = false
-anchors_preset = 0
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+texture = ExtResource("16_dowr5")
+expand_mode = 2
 
 [node name="Play" type="TextureButton" parent="CanvasLayer/Pause/StartMenu"]
 layout_mode = 1
@@ -288,20 +293,41 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -81.0
-offset_top = -136.0
-offset_right = 1335.0
-offset_bottom = 549.0
+offset_left = -276.0
+offset_top = -168.0
+offset_right = 1140.0
+offset_bottom = 517.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("16_t64iv")
 texture_pressed = ExtResource("16_t64iv")
 texture_hover = ExtResource("16_t64iv")
 texture_disabled = ExtResource("16_t64iv")
 texture_focused = ExtResource("16_t64iv")
 
+[node name="HowTo" type="TextureButton" parent="CanvasLayer/Pause/StartMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = -168.0
+offset_right = 1490.0
+offset_bottom = 517.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("18_vn3xc")
+texture_pressed = ExtResource("18_vn3xc")
+texture_hover = ExtResource("18_vn3xc")
+texture_disabled = ExtResource("18_vn3xc")
+texture_focused = ExtResource("18_vn3xc")
+
 [node name="SkillMenu" type="HBoxContainer" parent="CanvasLayer/Pause"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -398,9 +424,8 @@ size_flags_horizontal = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Pause/SkillMenu/Middle"]
 layout_mode = 0
 offset_left = -383.0
-offset_top = -600.0
+offset_top = -550.0
 offset_right = 1921.0
-offset_bottom = -50.0
 alignment = 1
 
 [node name="Skip" type="TextureButton" parent="CanvasLayer/Pause/SkillMenu/Middle"]
@@ -422,6 +447,79 @@ texture_pressed = ExtResource("17_ibbdg")
 texture_hover = ExtResource("17_ibbdg")
 texture_disabled = ExtResource("17_ibbdg")
 texture_focused = ExtResource("17_ibbdg")
+
+[node name="Title" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle"]
+self_modulate = Color(0, 1, 0.501961, 1)
+offset_left = -389.0
+offset_top = -748.0
+offset_right = 1915.0
+offset_bottom = -623.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 150
+text = "Choose a New Skill"
+horizontal_alignment = 1
+
+[node name="OverwriteText" type="Control" parent="CanvasLayer/Pause/SkillMenu/Middle"]
+visible = false
+anchors_preset = 0
+offset_left = -389.0
+offset_top = -748.0
+offset_right = -349.0
+offset_bottom = -708.0
+
+[node name="Followup" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
+self_modulate = Color(0, 1, 0.501961, 1)
+offset_top = 1032.0
+offset_right = 2304.0
+offset_bottom = 1182.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 125
+text = "Select Slot to Overwrite"
+horizontal_alignment = 1
+
+[node name="1" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
+self_modulate = Color(0, 1, 0.501961, 1)
+offset_left = -712.0
+offset_top = 896.0
+offset_right = 1592.0
+offset_bottom = 1046.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 125
+text = "1"
+horizontal_alignment = 1
+
+[node name="2" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
+self_modulate = Color(0, 1, 0.501961, 1)
+offset_left = -710.0
+offset_top = 1082.0
+offset_right = 1594.0
+offset_bottom = 1232.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 125
+text = "2"
+horizontal_alignment = 1
+
+[node name="3" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
+self_modulate = Color(0, 1, 0.501961, 1)
+offset_left = 688.0
+offset_top = 892.0
+offset_right = 2992.0
+offset_bottom = 1042.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 125
+text = "3"
+horizontal_alignment = 1
+
+[node name="4" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
+self_modulate = Color(0, 1, 0.501961, 1)
+offset_left = 690.0
+offset_top = 1078.0
+offset_right = 2994.0
+offset_bottom = 1228.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 125
+text = "4"
+horizontal_alignment = 1
 
 [node name="Right" type="VBoxContainer" parent="CanvasLayer/Pause/SkillMenu"]
 layout_mode = 2
@@ -557,14 +655,41 @@ texture_hover = ExtResource("17_r42p4")
 texture_disabled = ExtResource("17_r42p4")
 texture_focused = ExtResource("17_r42p4")
 
+[node name="PauseMenu" type="Panel" parent="CanvasLayer/Pause"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Back" type="TextureButton" parent="CanvasLayer/Pause/PauseMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -130.0
+offset_right = 1329.0
+offset_bottom = 555.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("16_t64iv")
+texture_pressed = ExtResource("16_t64iv")
+texture_hover = ExtResource("16_t64iv")
+texture_disabled = ExtResource("16_t64iv")
+texture_focused = ExtResource("16_t64iv")
+
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Left/Skill1" to="CanvasLayer/UI_SKILLS" method="_on_skill_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Left/Skill2" to="CanvasLayer/UI_SKILLS" method="_on_skill_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Right/Skill3" to="CanvasLayer/UI_SKILLS" method="_on_skill_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Right/Skill4" to="CanvasLayer/UI_SKILLS" method="_on_skill_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/StartMenu/Play" to="CanvasLayer/Pause" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/StartMenu/HowTo" to="CanvasLayer/Pause" method="_on_how_to_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Left/Skill1" to="CanvasLayer/Pause" method="_on_skill_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Left/Skill2" to="CanvasLayer/Pause" method="_on_skill_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Middle/Skip" to="CanvasLayer/Pause" method="_on_skip_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Right/Skill3" to="CanvasLayer/Pause" method="_on_skill_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Right/Skill4" to="CanvasLayer/Pause" method="_on_skill_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/DeathMenu/Retry" to="CanvasLayer/Pause" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PauseMenu/Back" to="CanvasLayer/Pause" method="_on_back_pressed"]

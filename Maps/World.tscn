@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://qbdahnmxlgql" path="res://Maps/WorldWrapper.gd" id="6_auhvp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_axgqa"]
-vertices = PackedVector2Array(9478.92, 9332.02, -9499.9, 9375.97, -9332.08, -9411, 9332.07, -9422.99)
+vertices = PackedVector2Array(7991.99, -7986, 7981, 7989, -7989.99, 7989.99, -7987, -7995.99)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-9342, -9421, -9510, 9386, 9489, 9342, 9342, -9433)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-7997, -8006, -8000, 8000, 7991, 7999, 8002, -7996)])
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true

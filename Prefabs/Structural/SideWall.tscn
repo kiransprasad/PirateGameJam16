@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ce2gvyb6rl785" path="res://Sprites/SideWall.png" id="1_2skpa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehmqv"]
-radius = 100.0
+radius = 40.0
 height = 2000.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1ulop"]
@@ -31,7 +31,7 @@ occluder = SubResource("OccluderPolygon2D_1ulop")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 228)
-vertices = PackedVector2Array(-149.333, -1264, -156, 872, 166.667, 872, 160, -1250.67)
+vertices = PackedVector2Array(-120, -1264, -120, 872, 120, 872, 120, -1250.67)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false

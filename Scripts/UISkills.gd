@@ -33,8 +33,8 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("Skill " + str(i+1)):
 			pressSkill(i)
 		
-		
 		if not stats.skills[i]:
+			nameText[i].text = "None"
 			cooldownText[i].text = ""
 			skillButton[i].modulate = Color(0.25, 0.25, 0.25)
 		elif i == stats.selectedSkill:
