@@ -9,6 +9,7 @@ radius = 100.0
 polygon = PackedVector2Array(-340, 566, -370, -210, -230, -462, -14, -560, 212, -440, 350, -262, 366, 556)
 
 [node name="Gate" type="Node2D"]
+scale = Vector2(0.75, 0.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

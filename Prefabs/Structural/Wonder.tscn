@@ -10,6 +10,7 @@ height = 2000.0
 polygon = PackedVector2Array(-2062, -708, -2058, 700, 2060, 700, 2060, -712)
 
 [node name="Wall" type="Node2D"]
+scale = Vector2(0.75, 0.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

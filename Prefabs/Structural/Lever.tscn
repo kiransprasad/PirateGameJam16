@@ -7,6 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvfq1"]
 
 [node name="Lever" type="Area2D" groups=["Interactable"]]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_prv38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
