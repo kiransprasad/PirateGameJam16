@@ -110,3 +110,27 @@ position = Vector2(4174, 1393)
 
 [node name="Barrel5" parent="." instance=ExtResource("8_ltdxg")]
 position = Vector2(927, 200)
+
+[node name="EnemySpawnPoint6" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(780, 3580)
+
+[node name="EnemySpawnPoint7" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(3996, 2628)
+
+[node name="EnemySpawnPoint8" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(1169, 1626)
+
+[node name="EnemySpawnPoint9" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(3512, 389)
+
+[node name="EnemySpawnPoint10" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(1315, 341)
+
+[node name="EnemySpawnPoint11" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(750, 2643)
+
+[node name="EnemySpawnPoint12" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(3441, 1653)
+
+[node name="EnemySpawnPoint13" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(2335, 393)

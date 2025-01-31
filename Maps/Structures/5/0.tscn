@@ -26,13 +26,10 @@ texture = SubResource("PlaceholderTexture2D_q8w6n")
 offset = Vector2(2250, 750)
 
 [node name="Barrel" parent="." instance=ExtResource("1_q8w6n")]
-position = Vector2(1849, 1476)
-
-[node name="Barrel2" parent="." instance=ExtResource("1_q8w6n")]
-position = Vector2(2053, 1619)
+position = Vector2(2685, 663)
 
 [node name="Barrel3" parent="." instance=ExtResource("1_q8w6n")]
-position = Vector2(1755, 1731)
+position = Vector2(1846, 670)
 
 [node name="SideWall2" parent="." instance=ExtResource("2_2saoe")]
 position = Vector2(1561, 756)
@@ -41,10 +38,10 @@ position = Vector2(1561, 756)
 position = Vector2(60, 2245)
 
 [node name="Wall" parent="." instance=ExtResource("3_eesfn")]
-position = Vector2(2243, 2736)
+position = Vector2(783, 2745)
 
 [node name="Door" parent="." instance=ExtResource("4_kkb1m")]
-position = Vector2(770, 2729)
+position = Vector2(2227, 2740)
 
 [node name="Wall2" parent="." instance=ExtResource("3_eesfn")]
 position = Vector2(-3525, 4828)

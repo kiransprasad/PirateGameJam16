@@ -25,4 +25,4 @@ position = Vector2(187, 166)
 position = Vector2(1008, 349)
 
 [node name="Gate" parent="." groups=["Gate0"] instance=ExtResource("4_v42ne")]
-position = Vector2(1153, 1032)
+position = Vector2(747, 1247)
