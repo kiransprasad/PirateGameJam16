@@ -11,8 +11,6 @@ var lifetime = 5
 func _ready() -> void:
 	$CollisionShape2D.scale = Vector2(radius, radius)
 	$Sprite2D.scale = Vector2(radius/2500, radius/2500)
-	$Sprite2D/Sprite2D.scale = Vector2(2500/radius * FIRE_SCALE, 2500/radius * FIRE_SCALE)
-	$Sprite2D/Sprite2D.region_rect = Rect2(0, 0, radius*2/FIRE_SCALE, radius*2/FIRE_SCALE)
 	
 	var flameSprite = $FlameSprite
 	for i in floor(radius / 20):
@@ -23,6 +21,8 @@ func _ready() -> void:
 		add_child(newFlame)
 
 func _process(delta: float) -> void:
+	
+	print(hitList)
 	
 	tick += delta
 	if tick > 0.1:

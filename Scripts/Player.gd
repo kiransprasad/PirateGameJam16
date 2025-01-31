@@ -5,22 +5,17 @@ enum STATE {ADVANCE, INTERACT, FIGHT, PANIC}
 var currState = STATE.PANIC
 
 # Movement Variables
-var targetStack = [Vector2(0, 0)]
+var targetQueue = []
 const SPEED = 750
 @onready var navigationAgent = $NavigationAgent2D
 var navLine = null
 var knockbackVector = Vector2.ZERO
 
-var enemiesNear = []
-const ENEMY_NEAR_THRESHOLD = 750
-var itemsNear = []
-const ITEM_NEAR_THRESHOLD = 3000
+const INTERACT_SECS = 3
+@onready var interactIcon = $TextureProgressBar
 
 # Stats
 var stats: PlayerStats = preload("res://playerStats.tres")
-
-# Skill Variables
-var facingDir = 0
 
 @onready var DEBUGTEXT = $Sprite2D.get_child(0)
 var STATETEXT = ["ADVANCE", "INTERACT", "FIGHT", "PANIC"]
@@ -35,12 +30,26 @@ var loadedSkill = null
 var loadedNum = -1
 var attackTimer = 0
 
+@onready var pauseMenu = $Camera2D/UI/CanvasLayer/Pause
+
 func _ready() -> void:
 	var children = get_parent().get_children()
 	for child in children:
 		if child.is_in_group("NavLine"):
 			navLine = child
 			
+	
+	# Reset stats
+	stats.confidence = 50
+	stats.experience = 0
+	stats.hp = 100
+	stats.panic = 0
+	stats.skills = [null, null, null, null]
+	stats.selectedSkill = -1
+	
+	# Start Menu
+	pauseMenu.setMenu(0)
+	get_tree().paused = true
 
 func _physics_process(delta):
 	
@@ -50,12 +59,8 @@ func _physics_process(delta):
 	if stats.confidence > 100:
 		stats.confidence = 100
 	
-	if(Input.is_action_just_pressed("Click") and loadedNum == -1):
-		targetStack.push_back(get_global_mouse_position())
-	
 	debugInit()
-	debug(STATETEXT[currState])
-	debug(enemiesNear)
+	debug(targetQueue)
 	
 	changeState()
 	performState(delta)
@@ -77,35 +82,41 @@ func changeState():
 	if stats.confidence <= 0:
 		currState = STATE.PANIC
 	if currState == STATE.ADVANCE:
-		if isEnemyNear():
-			currState = STATE.FIGHT
-		elif navigationAgent.is_navigation_finished():
-			targetStack.pop_back()
-			currState = STATE.INTERACT
+		if navigationAgent.is_navigation_finished():
+			if targetQueue.back() is Vector2:
+				targetQueue.pop_back()
+			else:
+				interactIcon.set_visible(true)
+				interactIcon.value = 0
+				currState = STATE.INTERACT
+			
 	elif currState == STATE.INTERACT:
-		if not Input.is_key_pressed(KEY_I): # Interaction Completed!
-			if len(targetStack) > 0:
-				currState = STATE.ADVANCE
-	elif currState == STATE.FIGHT:
-		if not isEnemyNear():
+		if interactIcon.value >= 100:
+			interactIcon.set_visible(false)
+			
+			var returnVal = targetQueue.pop_back().interact()
+			if returnVal is Vector2:
+				targetQueue.push_front(returnVal)
+			
 			currState = STATE.ADVANCE
 	elif currState == STATE.PANIC:
 		if stats.panic == 0:
 			stats.confidence = 25
 			currState = STATE.ADVANCE
-		elif isEnemyNear():
-			stats.panic = 100
-			currState = STATE.FIGHT
 
 func performState(delta):
 	if currState == STATE.ADVANCE:
-		navigationAgent.target_position = targetStack.back()
+		if targetQueue:
+			if targetQueue.back() is Vector2:
+				navigationAgent.target_position = targetQueue.back()
+			else:
+				navigationAgent.target_position = targetQueue.back().global_position
+		else:
+			navigationAgent.target_position = Vector2(global_position.x + 1, -9000)
 		velocity = global_position.direction_to(navigationAgent.get_next_path_position()) * SPEED
 	elif currState == STATE.INTERACT:
+		interactIcon.value += delta * 100/INTERACT_SECS
 		velocity = Vector2.ZERO
-	elif currState == STATE.FIGHT:
-		navigationAgent.target_position = targetStack.back()
-		velocity = global_position.direction_to(navigationAgent.get_next_path_position()) * SPEED
 	elif currState == STATE.PANIC:
 		velocity = Vector2.ZERO
 
@@ -134,6 +145,9 @@ func useSkills():
 			stats.selectedSkill = -1
 			attackTimer = 6
 			spriteTimer = 0
+			
+			interactIcon.value = max(0, interactIcon.value - 25)
+			
 	elif loadedSkill:
 		loadedSkill.queue_free()
 		loadedNum = -1
@@ -171,23 +185,34 @@ func debugInit():
 func debug(string):
 	DEBUGTEXT.text += str(string) + "\n"
 
-func isEnemyNear() -> bool:
-	for enemy in enemiesNear:
-		if position.distance_to(enemy.position) <= ENEMY_NEAR_THRESHOLD:
-			return true
-	return false
+#func isEnemyNear() -> bool:
+	#for enemy in enemiesNear:
+		#if position.distance_to(enemy.position) <= ENEMY_NEAR_THRESHOLD:
+			#return true
+	#return false
 
 func _on_sight_body_entered(body: Node2D) -> void:
-	if(body.is_in_group("Enemy")):
-		enemiesNear.append(body)
+	pass
+	#if(body.is_in_group("Enemy")):
+		#enemiesNear.append(body)
 
 func _on_sight_body_exited(body: Node2D) -> void:
-	if(body.is_in_group("Enemy")):
-		enemiesNear.erase(body)
-		
+	pass
+	#if(body.is_in_group("Enemy")):
+		#enemiesNear.erase(body)
+
+func _on_sight_area_entered(area: Area2D) -> void:
+	if(area.is_in_group("Interactable")):
+		area.get_child(0).queue_free()
+		navigationAgent.target_position = area.global_position
+		if navigationAgent.is_target_reachable():
+			targetQueue.push_front(area)
+
 func damage(dmgTaken : float) -> void:
 	stats.confidence -= dmgTaken / 5
-	stats.bond -= dmgTaken / 2.5
+	stats.hp -= dmgTaken / 2.5
+	if stats.hp <= 0:
+		die()
 		
 func knockback(kbVec):
 	knockbackVector += kbVec * 1000
@@ -200,3 +225,7 @@ func gainExp(expAmt : float) -> void:
 		stats.experience = deltaExp - 100
 	else:
 		stats.experience = deltaExp
+
+func die():
+	pauseMenu.setMenu(-1)
+	get_tree().paused = true

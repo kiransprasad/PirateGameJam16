@@ -5,7 +5,6 @@
 
 [node name="180Slash" type="Node2D"]
 script = ExtResource("1_g4amd")
-KNOCKBACK = Vector2(7, 0)
 
 [node name="SkillAim" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

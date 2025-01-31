@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://6i2vpb644i12"]
 
-[ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/barrel.tscn" id="1_jwqbh"]
+[ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="1_jwqbh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_euaci"]
 size = Vector2(3000, 1500)

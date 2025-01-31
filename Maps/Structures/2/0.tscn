@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://kd70d43fxx1v"]
+[gd_scene load_steps=5 format=3 uid="uid://kd70d43fxx1v"]
+
+[ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="1_sj48x"]
+[ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="2_ayjwk"]
+[ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_ayjwk"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k8vmu"]
 size = Vector2(3000, 3000)
@@ -6,6 +10,19 @@ size = Vector2(3000, 3000)
 [node name="0" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.501961, 1, 1, 1)
 texture = SubResource("PlaceholderTexture2D_k8vmu")
 offset = Vector2(1500, 1500)
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("2_ayjwk")]
+position = Vector2(658, 2295)
+
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("2_ayjwk")]
+position = Vector2(1178, 960)
+
+[node name="Lever" parent="." instance=ExtResource("1_sj48x")]
+position = Vector2(1723, 1743)
+
+[node name="Gate" parent="." groups=["Gate0"] instance=ExtResource("3_ayjwk")]
+position = Vector2(2334, 557)

@@ -1,10 +1,5 @@
 extends Node2D
 
-@export var DAMAGE = 10
-# Vector2.RIGHT = forward
-@export var KNOCKBACK : Vector2
-@export var RECOIL : Vector2
-
 #const FLIP = false
 @export var FIRE : Array[Vector3] = []
 @export var ICE : Array[Vector2] = []
@@ -18,6 +13,10 @@ func use():
 		if child is NavigationRegion2D:
 			NAVMESH = child
 	
+	var skill = load("res://Skills/Templates/" + name + ".tres")
+	var DAMAGE = skill.damage
+	var KNOCKBACK = skill.knockback
+	var RECOIL = skill.recoil
 	
 	# Recoil Player
 	get_parent().knockback(RECOIL.rotated(rotation))

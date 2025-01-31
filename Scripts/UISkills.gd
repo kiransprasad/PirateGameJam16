@@ -23,35 +23,47 @@ var stats: PlayerStats = preload("res://playerStats.tres")
 	$Right/Skill4/CD,
 ]
 
-func _ready() -> void:
+func _ready():
 	for i in 4:
-		nameText[i].text = stats.skills[i].name
+		nameText[i].text = "None"
+		cooldownText[i].text = ""
 
 func _process(delta: float) -> void:
 	for i in 4:
 		if Input.is_action_just_pressed("Skill " + str(i+1)):
-			stats.selectedSkill = i if stats.skills[i].cooldown <= 0 and stats.selectedSkill != i else -1
+			pressSkill(i)
 		
-		if i == stats.selectedSkill:
+		
+		if not stats.skills[i]:
+			cooldownText[i].text = ""
+			skillButton[i].modulate = Color(0.25, 0.25, 0.25)
+		elif i == stats.selectedSkill:
+			nameText[i].text = stats.skills[i].name
 			cooldownText[i].text = "Selected"
 			skillButton[i].modulate = stats.skills[i].colour
 		elif stats.skills[i].cooldown - delta > 0:
+			nameText[i].text = stats.skills[i].name
 			stats.skills[i].cooldown -= delta
-			cooldownText[i].text = str(snapped(stats.skills[i].cooldown, 0.1))
+			cooldownText[i].text = str(snapped(stats.skills[i].cooldown, 0.1)) + "s"
 			skillButton[i].modulate = Color(0.25, 0.25, 0.25)
 		else:
+			nameText[i].text = stats.skills[i].name
 			stats.skills[i].cooldown = 0
 			cooldownText[i].text = "Ready"
 			skillButton[i].modulate = stats.skills[i].colour
 
 func _on_skill_1_pressed() -> void:
-	stats.selectedSkill = 0 if stats.skills[0].cooldown <= 0 and stats.selectedSkill != 0 else -1
+	pressSkill(0)
 
 func _on_skill_2_pressed() -> void:
-	stats.selectedSkill = 1 if stats.skills[1].cooldown <= 0 and stats.selectedSkill != 1 else -1
+	pressSkill(1)
 
 func _on_skill_3_pressed() -> void:
-	stats.selectedSkill = 2 if stats.skills[2].cooldown <= 0 and stats.selectedSkill != 2 else -1
+	pressSkill(2)
 
 func _on_skill_4_pressed() -> void:
-	stats.selectedSkill = 3 if stats.skills[3].cooldown <= 0 and stats.selectedSkill != 3 else -1
+	pressSkill(4)
+
+func pressSkill(id : int):
+	if stats.skills[id]:
+		stats.selectedSkill = id if stats.skills[id].cooldown <= 0 and stats.selectedSkill != id else -1

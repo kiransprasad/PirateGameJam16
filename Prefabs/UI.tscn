@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmqjboxqlxunf"]
+[gd_scene load_steps=19 format=3 uid="uid://cmqjboxqlxunf"]
 
-[ext_resource type="Texture2D" uid="uid://bjaqes2s1ndi2" path="res://UI/UI_Bars.png" id="1_fgnch"]
+[ext_resource type="Texture2D" uid="uid://carltfp7wnr3o" path="res://UI/UI_Bars.png" id="1_fgnch"]
 [ext_resource type="Script" uid="uid://1w2fav4mqsw6" path="res://Scripts/UIBars.gd" id="2_f40nl"]
 [ext_resource type="Texture2D" uid="uid://dmachs7a0cilu" path="res://UI/ConfidenceBar.png" id="3_cthsg"]
-[ext_resource type="Texture2D" uid="uid://c7c2ulrae3kb2" path="res://UI/BondBar.png" id="4_svoaq"]
+[ext_resource type="Texture2D" uid="uid://cgsw22omirpm" path="res://UI/BondBar.png" id="4_svoaq"]
 [ext_resource type="Texture2D" uid="uid://o8gq68c8u1wm" path="res://UI/EXPBar.png" id="5_vjqvw"]
-[ext_resource type="Texture2D" uid="uid://k7umnwei018a" path="res://UI/PanicBar.png" id="6_4xu3d"]
+[ext_resource type="Texture2D" uid="uid://dssfhwadlpwy2" path="res://UI/PanicBar.png" id="6_4xu3d"]
 [ext_resource type="Script" uid="uid://dadtca5bs4wyb" path="res://Scripts/UISkills.gd" id="7_svoaq"]
 [ext_resource type="Texture2D" uid="uid://dturq8ctbwfcg" path="res://UI/S1.png" id="7_t64iv"]
 [ext_resource type="BitMap" uid="uid://dxhi7svwyf7os" path="res://UI/ButtonBitmapLeft.png" id="8_cthsg"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://dcksi1yv2202y" path="res://UI/S4.png" id="10_dowr5"]
 [ext_resource type="BitMap" uid="uid://dt2pyntilwotv" path="res://UI/ButtonBitmapRight.png" id="10_svoaq"]
 [ext_resource type="FontFile" uid="uid://bgr5it3klxcmf" path="res://UI/Handwritten.otf" id="10_vjqvw"]
+[ext_resource type="Script" uid="uid://6sovrg7qhl3q" path="res://Scripts/Pause.gd" id="15_4xu3d"]
+[ext_resource type="Texture2D" uid="uid://ctvrkxq5yf311" path="res://UI/PlayButton.png" id="16_t64iv"]
+[ext_resource type="Texture2D" uid="uid://iydvewsokris" path="res://UI/SkipButton.png" id="17_ibbdg"]
+[ext_resource type="Texture2D" uid="uid://ch8iwbr40uxte" path="res://UI/RestartButton.png" id="17_r42p4"]
 
 [node name="UI" type="Control"]
 top_level = true
@@ -30,11 +34,12 @@ grow_vertical = 2
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -244.0
-offset_right = 732.0
-offset_bottom = 346.0
+offset_left = -202.0
+offset_top = 10.0
+offset_right = 410.0
+offset_bottom = 220.0
 grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.66, 0.66)
 texture = ExtResource("1_fgnch")
 expand_mode = 5
 script = ExtResource("2_f40nl")
@@ -42,65 +47,56 @@ script = ExtResource("2_f40nl")
 [node name="ConfidenceBar" type="TextureProgressBar" parent="CanvasLayer/UI_BARS"]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 42.0
-offset_top = 42.0
-offset_right = 929.0
-offset_bottom = 231.0
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 901.0
+offset_bottom = 208.0
+scale = Vector2(0.66, 0.66)
+value = 100.0
 texture_progress = ExtResource("3_cthsg")
 
-[node name="BondBar" type="TextureProgressBar" parent="CanvasLayer/UI_BARS"]
+[node name="HPBar" type="TextureProgressBar" parent="CanvasLayer/UI_BARS"]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 52.0
-offset_top = 122.0
-offset_right = 488.0
-offset_bottom = 309.0
+offset_left = 20.0
+offset_top = 77.0
+offset_right = 456.0
+offset_bottom = 264.0
+value = 100.0
 texture_progress = ExtResource("4_svoaq")
 
 [node name="EXPBar" type="TextureProgressBar" parent="CanvasLayer/UI_BARS"]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 488.0
-offset_top = 122.0
-offset_right = 924.0
-offset_bottom = 309.0
+offset_left = 306.0
+offset_top = 72.0
+offset_right = 723.0
+offset_bottom = 246.0
+scale = Vector2(0.66, 0.66)
+value = 100.0
 texture_progress = ExtResource("5_vjqvw")
 
 [node name="PanicBar" type="TextureProgressBar" parent="CanvasLayer/UI_BARS"]
-layout_mode = 0
-offset_left = -5.59998
-offset_top = -25.55
-offset_right = 2275.4
-offset_bottom = 673.45
-scale = Vector2(0.443, 0.443)
+offset_right = 612.0
+offset_bottom = 218.0
 value = 100.0
 texture_progress = ExtResource("6_4xu3d")
 
 [node name="Score" type="Label" parent="CanvasLayer/UI_BARS"]
-offset_left = 1230.0
-offset_top = 14.0
-offset_right = 1389.0
-offset_bottom = 117.0
+layout_mode = 0
+offset_left = 625.0
+offset_top = 15.0
+offset_right = 1125.0
+offset_bottom = 90.0
 theme_override_constants/line_spacing = -10
 theme_override_fonts/font = ExtResource("10_vjqvw")
-theme_override_font_sizes/font_size = 100
-text = "Score:"
+theme_override_font_sizes/font_size = 75
+text = "0 steps
+"
+horizontal_alignment = 2
 vertical_alignment = 1
 justification_flags = 0
-paragraph_separator = " "
-
-[node name="ScoreCounter" type="Label" parent="CanvasLayer/UI_BARS"]
-offset_left = 1234.0
-offset_top = 106.0
-offset_right = 1432.0
-offset_bottom = 209.0
-theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("10_vjqvw")
-theme_override_font_sizes/font_size = 100
-text = "XXXXXm"
-vertical_alignment = 1
-justification_flags = 0
-paragraph_separator = " "
+paragraph_separator = " \\n"
 
 [node name="UI_SKILLS" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 7
@@ -145,14 +141,14 @@ paragraph_separator = " "
 
 [node name="CD" type="Label" parent="CanvasLayer/UI_SKILLS/Left/Skill1"]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 120.0
-offset_right = 323.0
-offset_bottom = 220.0
+offset_left = 150.0
+offset_top = 98.0
+offset_right = 327.0
+offset_bottom = 198.0
 rotation = 0.383972
 theme_override_fonts/font = ExtResource("10_vjqvw")
 theme_override_font_sizes/font_size = 100
-text = "00.0"
+text = "0.00"
 horizontal_alignment = 2
 vertical_alignment = 1
 justification_flags = 0
@@ -180,14 +176,14 @@ paragraph_separator = " "
 
 [node name="CD" type="Label" parent="CanvasLayer/UI_SKILLS/Left/Skill2"]
 layout_mode = 0
-offset_left = 204.0
-offset_top = 126.0
-offset_right = 317.0
-offset_bottom = 226.0
+offset_left = 144.0
+offset_top = 104.0
+offset_right = 321.0
+offset_bottom = 204.0
 rotation = 0.383972
 theme_override_fonts/font = ExtResource("10_vjqvw")
 theme_override_font_sizes/font_size = 100
-text = "00.0"
+text = "0.00"
 horizontal_alignment = 2
 vertical_alignment = 1
 justification_flags = 0
@@ -270,7 +266,302 @@ text = "00.0"
 vertical_alignment = 1
 justification_flags = 0
 
+[node name="Pause" type="Panel" parent="CanvasLayer"]
+process_mode = 2
+self_modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("15_4xu3d")
+
+[node name="StartMenu" type="Control" parent="CanvasLayer/Pause"]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Play" type="TextureButton" parent="CanvasLayer/Pause/StartMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -136.0
+offset_right = 1335.0
+offset_bottom = 549.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("16_t64iv")
+texture_pressed = ExtResource("16_t64iv")
+texture_hover = ExtResource("16_t64iv")
+texture_disabled = ExtResource("16_t64iv")
+texture_focused = ExtResource("16_t64iv")
+
+[node name="SkillMenu" type="HBoxContainer" parent="CanvasLayer/Pause"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -551.0
+offset_top = -248.0
+offset_right = 1649.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="Left" type="VBoxContainer" parent="CanvasLayer/Pause/SkillMenu"]
+layout_mode = 2
+theme_override_constants/separation = -125
+
+[node name="Skill1" type="TextureButton" parent="CanvasLayer/Pause/SkillMenu/Left"]
+layout_mode = 2
+texture_normal = ExtResource("7_t64iv")
+texture_click_mask = ExtResource("8_cthsg")
+
+[node name="Name" type="Label" parent="CanvasLayer/Pause/SkillMenu/Left/Skill1"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 310.0
+offset_bottom = 140.0
+rotation = 0.383972
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 55
+text = "Basic
+Slash"
+vertical_alignment = 1
+justification_flags = 0
+paragraph_separator = " "
+
+[node name="CD" type="Label" parent="CanvasLayer/Pause/SkillMenu/Left/Skill1"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 98.0
+offset_right = 327.0
+offset_bottom = 198.0
+rotation = 0.383972
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 100
+text = "0.00"
+horizontal_alignment = 2
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="Skill2" type="TextureButton" parent="CanvasLayer/Pause/SkillMenu/Left"]
+layout_mode = 2
+texture_normal = ExtResource("8_r42p4")
+texture_click_mask = ExtResource("8_cthsg")
+
+[node name="Name" type="Label" parent="CanvasLayer/Pause/SkillMenu/Left/Skill2"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 46.0
+offset_right = 304.0
+offset_bottom = 146.0
+rotation = 0.383972
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 55
+text = "Basic
+Slash"
+vertical_alignment = 1
+justification_flags = 0
+paragraph_separator = " "
+
+[node name="CD" type="Label" parent="CanvasLayer/Pause/SkillMenu/Left/Skill2"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 104.0
+offset_right = 321.0
+offset_bottom = 204.0
+rotation = 0.383972
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 100
+text = "0.00"
+horizontal_alignment = 2
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="Middle" type="Control" parent="CanvasLayer/Pause/SkillMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Pause/SkillMenu/Middle"]
+layout_mode = 0
+offset_left = -383.0
+offset_top = -600.0
+offset_right = 1921.0
+offset_bottom = -50.0
+alignment = 1
+
+[node name="Skip" type="TextureButton" parent="CanvasLayer/Pause/SkillMenu/Middle"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -464.0
+offset_right = 1262.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("17_ibbdg")
+texture_pressed = ExtResource("17_ibbdg")
+texture_hover = ExtResource("17_ibbdg")
+texture_disabled = ExtResource("17_ibbdg")
+texture_focused = ExtResource("17_ibbdg")
+
+[node name="Right" type="VBoxContainer" parent="CanvasLayer/Pause/SkillMenu"]
+layout_mode = 2
+theme_override_constants/separation = -125
+
+[node name="Skill3" type="TextureButton" parent="CanvasLayer/Pause/SkillMenu/Right"]
+layout_mode = 2
+texture_normal = ExtResource("9_ibbdg")
+texture_click_mask = ExtResource("10_svoaq")
+
+[node name="Name" type="Label" parent="CanvasLayer/Pause/SkillMenu/Right/Skill3"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 130.0
+offset_right = 311.0
+offset_bottom = 230.0
+rotation = -0.383972
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 53
+text = "Basic
+Slash"
+horizontal_alignment = 2
+vertical_alignment = 1
+justification_flags = 0
+paragraph_separator = " "
+
+[node name="CD" type="Label" parent="CanvasLayer/Pause/SkillMenu/Right/Skill3"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 168.0
+offset_right = 126.0
+offset_bottom = 268.0
+rotation = -0.383972
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 100
+text = "00.0"
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="Skill4" type="TextureButton" parent="CanvasLayer/Pause/SkillMenu/Right"]
+layout_mode = 2
+texture_normal = ExtResource("10_dowr5")
+texture_click_mask = ExtResource("10_svoaq")
+
+[node name="Name" type="Label" parent="CanvasLayer/Pause/SkillMenu/Right/Skill4"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 140.0
+offset_right = 303.0
+offset_bottom = 240.0
+rotation = -0.383972
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 52
+text = "Basic
+Slash"
+horizontal_alignment = 2
+vertical_alignment = 1
+justification_flags = 0
+paragraph_separator = " "
+
+[node name="CD" type="Label" parent="CanvasLayer/Pause/SkillMenu/Right/Skill4"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 178.0
+offset_right = 128.0
+offset_bottom = 278.0
+rotation = -0.383972
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 100
+text = "00.0"
+vertical_alignment = 1
+justification_flags = 0
+
+[node name="DeathMenu" type="Control" parent="CanvasLayer/Pause"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ScoreText" type="Label" parent="CanvasLayer/Pause/DeathMenu"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 250.0
+offset_right = 738.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 50
+text = "Distance Travelled . . . XXXXm"
+
+[node name="HighScoreText" type="Label" parent="CanvasLayer/Pause/DeathMenu"]
+offset_left = 407.0
+offset_top = 306.0
+offset_right = 739.0
+offset_bottom = 358.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 50
+text = "Previous Best . . . . . . XXXXm"
+
+[node name="NewRecordText" type="Label" parent="CanvasLayer/Pause/DeathMenu"]
+visible = false
+self_modulate = Color(0, 1, 0, 1)
+offset_left = 408.0
+offset_top = 391.0
+offset_right = 740.0
+offset_bottom = 443.0
+theme_override_fonts/font = ExtResource("10_vjqvw")
+theme_override_font_sizes/font_size = 50
+text = "New Record!"
+horizontal_alignment = 1
+
+[node name="Retry" type="TextureButton" parent="CanvasLayer/Pause/DeathMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -136.0
+offset_right = 1335.0
+offset_bottom = 549.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("17_r42p4")
+texture_pressed = ExtResource("17_r42p4")
+texture_hover = ExtResource("17_r42p4")
+texture_disabled = ExtResource("17_r42p4")
+texture_focused = ExtResource("17_r42p4")
+
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Left/Skill1" to="CanvasLayer/UI_SKILLS" method="_on_skill_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Left/Skill2" to="CanvasLayer/UI_SKILLS" method="_on_skill_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Right/Skill3" to="CanvasLayer/UI_SKILLS" method="_on_skill_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Right/Skill4" to="CanvasLayer/UI_SKILLS" method="_on_skill_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/StartMenu/Play" to="CanvasLayer/Pause" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Left/Skill1" to="CanvasLayer/Pause" method="_on_skill_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Left/Skill2" to="CanvasLayer/Pause" method="_on_skill_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Middle/Skip" to="CanvasLayer/Pause" method="_on_skip_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Right/Skill3" to="CanvasLayer/Pause" method="_on_skill_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/SkillMenu/Right/Skill4" to="CanvasLayer/Pause" method="_on_skill_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/DeathMenu/Retry" to="CanvasLayer/Pause" method="_on_retry_pressed"]

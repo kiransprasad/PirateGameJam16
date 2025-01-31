@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjfosvpmelg5u"]
+
+[ext_resource type="Script" uid="uid://dpjn37gor6oc4" path="res://Scripts/Interactable.gd" id="1_prv38"]
+[ext_resource type="Texture2D" uid="uid://bfdscq31o1ku1" path="res://Sprites/LeverOff.png" id="2_rrrtl"]
+[ext_resource type="Texture2D" uid="uid://dwmcvxhf07ypn" path="res://Sprites/LeverOn.png" id="3_a0atp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvfq1"]
+
+[node name="Lever" type="Area2D" groups=["Interactable"]]
+script = ExtResource("1_prv38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lvfq1")
+
+[node name="OFF" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rrrtl")
+
+[node name="ON" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_a0atp")

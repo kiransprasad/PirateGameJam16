@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://jvy1u44decnv"]
+[gd_scene load_steps=3 format=3 uid="uid://jvy1u44decnv"]
+
+[ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="1_do4y0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_apwru"]
 size = Vector2(6000, 6000)
@@ -6,6 +8,37 @@ size = Vector2(6000, 6000)
 [node name="0" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.439216, 0.439216, 0.501961, 1)
 texture = SubResource("PlaceholderTexture2D_apwru")
 offset = Vector2(3000, 3000)
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(1084, 2136)
+
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(1135, 2727)
+
+[node name="EnemySpawnPoint3" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(1298, 3778)
+
+[node name="EnemySpawnPoint4" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(3532, 5115)
+
+[node name="EnemySpawnPoint5" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(5481, 809)
+
+[node name="EnemySpawnPoint6" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(1573, 585)
+
+[node name="EnemySpawnPoint7" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(2777, 2758)
+
+[node name="EnemySpawnPoint8" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(5307, 4360)
+
+[node name="EnemySpawnPoint9" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(3716, 1462)
+
+[node name="EnemySpawnPoint10" parent="." instance=ExtResource("1_do4y0")]
+position = Vector2(4399, 2850)

@@ -6,7 +6,14 @@ var tiles = []
 var structures = []
 var specialStructures = []
 
+var score = preload("res://score.tres")
+var currScore : int = 0
+var tileNum = 0
+
 func _ready() -> void:
+	
+	currScore = 999
+	#score.set_meta("score", currScore)
 	
 	# Get the player location
 	var children = get_parent().get_children()
@@ -29,6 +36,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	var newScore : int = tileNum * 40 + floor(player.global_position.y / -375)
+	if newScore > currScore:
+		currScore = newScore
+		score.set_meta("score", currScore)
+	
 	if abs(player.global_position.x) >= 7501:
 		shiftWorld(snappedi(player.global_position.x, 7500), 0)
 	if abs(player.global_position.y) >= 7501:
@@ -49,6 +61,7 @@ func shiftWorld(shiftX : int, shiftY : int):
 	
 	# Shift off old tiles and generate new ones
 	if shiftY < 0:
+		tileNum += 1
 		for i in [8, 7, 6]:
 			deleteTile(tiles[i])
 		for i in [8, 7, 6, 5, 4, 3]:
@@ -56,6 +69,7 @@ func shiftWorld(shiftX : int, shiftY : int):
 		for i in [2, 1, 0]:
 			tiles[i] = generateTile(i)
 	elif shiftY > 0:
+		tileNum -= 1
 		for i in [0, 1, 2]:
 			deleteTile(tiles[i])
 		for i in [0, 1, 2, 3, 4, 5]:
@@ -194,6 +208,5 @@ func randomStructure(structType : int, index : int, tileNum : int):
 	return newStructure
 
 func deleteTile(tile):
-	print(tile)
 	for structure in tile:
 		structure.queue_free()

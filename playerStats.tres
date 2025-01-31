@@ -11,7 +11,7 @@
 script = ExtResource("1_mjmqq")
 confidence = 0.0
 experience = 0.0
-bond = 100.0
+hp = 100.0
 panic = 0.0
 skills = Array[ExtResource("2_8fci7")]([ExtResource("3_kk5vr"), ExtResource("4_wt14f"), ExtResource("5_kk5vr"), ExtResource("6_kk5vr")])
 selectedSkill = -1

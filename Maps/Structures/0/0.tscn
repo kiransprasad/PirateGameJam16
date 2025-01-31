@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhwj4a55h1s82"]
+[gd_scene load_steps=6 format=3 uid="uid://dhwj4a55h1s82"]
 
-[ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/barrel.tscn" id="1_ht4xn"]
+[ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="1_ht4xn"]
+[ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="2_52uhx"]
+[ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="3_3alqi"]
+[ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="4_v42ne"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rcpwg"]
 size = Vector2(1500, 1500)
@@ -13,4 +16,13 @@ texture = SubResource("PlaceholderTexture2D_rcpwg")
 offset = Vector2(750, 750)
 
 [node name="Barrel" parent="." instance=ExtResource("1_ht4xn")]
-position = Vector2(812, 688)
+position = Vector2(746, 693)
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("2_52uhx")]
+position = Vector2(187, 166)
+
+[node name="InteractPoint" parent="." instance=ExtResource("3_3alqi")]
+position = Vector2(1008, 349)
+
+[node name="Gate" parent="." groups=["Gate0"] instance=ExtResource("4_v42ne")]
+position = Vector2(1153, 1032)

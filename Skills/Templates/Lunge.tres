@@ -9,4 +9,7 @@ name = "Lunge"
 colour = Color(1, 1, 1, 1)
 cooldown = 0.0
 max_cooldown = 25.0
+damage = 10
+knockback = Vector2(1, 0)
+recoil = Vector2(10, 0)
 template = ExtResource("2_eofi5")

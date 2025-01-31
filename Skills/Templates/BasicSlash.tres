@@ -9,4 +9,7 @@ name = "Basic Slash"
 colour = Color(1, 1, 1, 1)
 cooldown = 0.0
 max_cooldown = 3.0
+damage = 10
+knockback = Vector2(1, 0)
+recoil = Vector2(0, 0)
 template = ExtResource("2_dwc3c")

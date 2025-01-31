@@ -5,7 +5,6 @@
 
 [node name="BasicSlash" type="Node2D"]
 script = ExtResource("1_sxeox")
-KNOCKBACK = Vector2(1, 0)
 
 [node name="SkillAim" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

@@ -7,7 +7,7 @@ const SPEED = 150
 const SIGHT_RANGE = 1000
 const CHASE_RANGE = 2000
 
-const SIGHT_SECONDS = 3
+const SIGHT_SECONDS = 2
 const ATTACK_SECONDS = 0.5
 
 enum STATE {WANDER, CHASE, ATTACK, DEAD}
@@ -27,6 +27,7 @@ var wanderRot = PI/180
 var target = null
 
 @onready var sprite = $Sprite2D
+@onready var hitbox = $CollisionShape2D
 var spriteTimer = 0
 
 func _ready() -> void:
@@ -37,6 +38,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
+	if position.distance_to(target.position) > 6000:
+		# Despawn if too far down
+		if global_position.y - target.global_position.y > 6000:
+			queue_free()
+
+		# Otherwise we will just not do anything until we are close enough to matter
+		return
 
 	changeState()
 	performState(delta)
@@ -123,6 +132,8 @@ func performState(delta):
 func animate():
 	
 	sprite.flip_h = velocity.x > 0
+	hitbox.position.x = 18 if velocity.x > 0 else -18
+	hitbox.rotation = PI/12 if velocity.x > 0 else -PI/12
 	
 	spriteTimer += 1
 	if spriteTimer >= stateToAnimSpeed[currState]:

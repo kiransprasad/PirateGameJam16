@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp442fvhuelk0"]
+
+[ext_resource type="Script" uid="uid://b66ylr8byglla" path="res://Scripts/SkillPreview.gd" id="1_lv48u"]
+[ext_resource type="FontFile" uid="uid://bgr5it3klxcmf" path="res://UI/Handwritten.otf" id="2_tawry"]
+[ext_resource type="Texture2D" uid="uid://dq38li5enms3" path="res://Sprites/Skills/180Slash.png" id="3_lxemf"]
+
+[node name="SkillPreview" type="Button"]
+custom_minimum_size = Vector2(500, 525)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -4.0
+offset_right = 396.0
+offset_bottom = 525.0
+grow_horizontal = 2
+pivot_offset = Vector2(250, 0)
+size_flags_vertical = 3
+flat = true
+script = ExtResource("1_lv48u")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("2_tawry")
+theme_override_font_sizes/font_size = 75
+text = "Skill Name"
+horizontal_alignment = 1
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 25.0
+offset_top = 110.0
+offset_right = 475.0
+offset_bottom = 410.0
+size_flags_vertical = 3
+texture = ExtResource("3_lxemf")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_top = 380.0
+offset_right = 500.0
+offset_bottom = 589.0
+alignment = 1
+
+[node name="Stats" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_tawry")
+theme_override_font_sizes/font_size = 50
+text = "X Damage
+X Cooldown
+
+"
+horizontal_alignment = 1
+
+[node name="Stats2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_tawry")
+theme_override_font_sizes/font_size = 50
+text = "X Knockback
+X Recoil
+
+"
+horizontal_alignment = 1

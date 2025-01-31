@@ -9,4 +9,7 @@ name = "Flame Burst"
 colour = Color(1, 0.501961, 0, 1)
 cooldown = 0.0
 max_cooldown = 20.0
+damage = 5
+knockback = Vector2(10, 0)
+recoil = Vector2(-5, 0)
 template = ExtResource("2_xru4a")

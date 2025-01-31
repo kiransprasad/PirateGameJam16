@@ -7,10 +7,10 @@ const SPEED = 250
 const SIGHT_RANGE = 750
 const CHASE_RANGE = 1500
 
-const SIGHT_SECONDS = 5
+const SIGHT_SECONDS = 4
 const CHARGE_SECONDS = 2
-const ATTACK_SECONDS = 1
-const RECHARGE_SECONDS = 2
+const ATTACK_SECONDS = 2
+const RECHARGE_SECONDS = 1
 
 const WANDER_DISTANCE : float = 1750
 const KNOCKBACK_MOD = 1000
@@ -46,6 +46,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
+	if position.distance_to(target.position) > 6000:
+		# Despawn if too far down
+		if global_position.y - target.global_position.y > 6000:
+			queue_free()
+
+		# Otherwise we will just not do anything until we are close enough to matter
+		return
 
 	changeState()
 	performState(delta)
@@ -128,10 +136,6 @@ func performState(delta):
 		else:
 			sightIcon.value = 0
 			sightIcon.set_visible(false)
-			
-			# Despawn if too far away
-			if global_position.distance_to(target.global_position) > 6000:
-				queue_free()
 		
 		if navigationAgent.is_navigation_finished():
 			wanderTimer -= 1

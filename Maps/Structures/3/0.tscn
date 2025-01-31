@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cikqk52nxfsq"]
+[gd_scene load_steps=5 format=3 uid="uid://cikqk52nxfsq"]
+
+[ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="1_fcdi1"]
+[ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="2_wevix"]
+[ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_wevix"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ptmgb"]
 size = Vector2(4500, 4500)
@@ -6,5 +10,41 @@ size = Vector2(4500, 4500)
 [node name="0" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("PlaceholderTexture2D_ptmgb")
 offset = Vector2(2250, 2250)
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(921, 1103)
+
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(162, 3934)
+
+[node name="EnemySpawnPoint3" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(2137, 2609)
+
+[node name="EnemySpawnPoint4" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(3932, 3946)
+
+[node name="EnemySpawnPoint5" parent="." instance=ExtResource("1_fcdi1")]
+position = Vector2(3775, 429)
+
+[node name="InteractPoint" parent="." instance=ExtResource("2_wevix")]
+position = Vector2(343, 2235)
+
+[node name="InteractPoint2" parent="." instance=ExtResource("2_wevix")]
+position = Vector2(4269, 2392)
+leverNum = 1
+
+[node name="InteractPoint3" parent="." instance=ExtResource("2_wevix")]
+position = Vector2(2234, 730)
+leverNum = 2
+
+[node name="Gate" parent="." groups=["Gate0"] instance=ExtResource("3_wevix")]
+position = Vector2(913, 2353)
+
+[node name="Gate2" parent="." groups=["Gate1"] instance=ExtResource("3_wevix")]
+position = Vector2(4131, 1227)
+
+[node name="Gate3" parent="." groups=["Gate2"] instance=ExtResource("3_wevix")]
+position = Vector2(2705, 1161)

@@ -7,9 +7,6 @@
 
 [node name="FlameBurst" type="Node2D"]
 script = ExtResource("1_brgvv")
-DAMAGE = 5
-KNOCKBACK = Vector2(10, 0)
-RECOIL = Vector2(-5, 0)
 FIRE = Array[Vector3]([Vector3(384, 0, 512)])
 
 [node name="SkillAim" type="Sprite2D" parent="."]

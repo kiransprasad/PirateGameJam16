@@ -9,4 +9,7 @@ name = "180 Slash"
 colour = Color(1, 1, 1, 1)
 cooldown = 0.0
 max_cooldown = 20.0
+damage = 15
+knockback = Vector2(7, 0)
+recoil = Vector2(0, 0)
 template = ExtResource("2_v56pu")
