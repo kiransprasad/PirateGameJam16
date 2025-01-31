@@ -27,11 +27,3 @@ shape = SubResource("CircleShape2D_njkoh")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 scale = Vector2(0.5, 0.5)
 occluder = SubResource("OccluderPolygon2D_d4qny")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-y_sort_enabled = true
-position = Vector2(5.33333, 50.6667)
-vertices = PackedVector2Array(-145.333, -91.6667, 9.33333, 149.667, 128, -101)
-affect_navigation_mesh = true
-carve_navigation_mesh = true
-avoidance_enabled = false

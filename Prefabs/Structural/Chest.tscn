@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg10rcny3lgft"]
+[gd_scene load_steps=11 format=3 uid="uid://cg10rcny3lgft"]
 
+[ext_resource type="Script" uid="uid://d11kbeoaei1xp" path="res://Scripts/Chest.gd" id="1_nv7ec"]
 [ext_resource type="Texture2D" uid="uid://b5v4wi3ju543c" path="res://Sprites/Gold_Chest.png" id="1_sguf2"]
+[ext_resource type="Texture2D" uid="uid://d327hpckyl2qi" path="res://Sprites/Copper_Chest.png" id="2_pl6cw"]
+[ext_resource type="Texture2D" uid="uid://b13glovf3nnen" path="res://Sprites/ChestCopperOpen.png" id="3_p77m8"]
+[ext_resource type="Texture2D" uid="uid://cfoboqgvjtys7" path="res://Sprites/Silver_Chest.png" id="4_kyyc1"]
+[ext_resource type="Texture2D" uid="uid://ds4h6l4ukgfha" path="res://Sprites/ChestSilverOpen.png" id="5_rx4qj"]
+[ext_resource type="Texture2D" uid="uid://ciybkoxe5e6yj" path="res://Sprites/ChestGoldOpen.png" id="7_kyyc1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_njkoh"]
 radius = 85.0
@@ -8,11 +14,20 @@ radius = 85.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sguf2"]
 polygon = PackedVector2Array(-324, 294, -274, -206, 0, -244, 270, -216, 324, 56, 198, 302)
 
-[node name="Chest" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyyc1"]
+radius = 150.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_nv7ec")
+
+[node name="Bronze" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_sguf2")
+texture = ExtResource("2_pl6cw")
+
+[node name="BronzeOpen" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_p77m8")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -32,3 +47,29 @@ vertices = PackedVector2Array(-43, -147, -11, -86, 15, -141)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false
+
+[node name="Silver" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_kyyc1")
+
+[node name="SilverOpen" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_rx4qj")
+
+[node name="Gold" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_sguf2")
+
+[node name="GoldOpen" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_kyyc1")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Interactable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11, 17)
+shape = SubResource("CircleShape2D_kyyc1")

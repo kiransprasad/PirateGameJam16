@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cmqjboxqlxunf"]
+[gd_scene load_steps=22 format=3 uid="uid://cmqjboxqlxunf"]
 
 [ext_resource type="Texture2D" uid="uid://carltfp7wnr3o" path="res://UI/UI_Bars.png" id="1_fgnch"]
 [ext_resource type="Script" uid="uid://1w2fav4mqsw6" path="res://Scripts/UIBars.gd" id="2_f40nl"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://iydvewsokris" path="res://UI/SkipButton.png" id="17_ibbdg"]
 [ext_resource type="Texture2D" uid="uid://ch8iwbr40uxte" path="res://UI/RestartButton.png" id="17_r42p4"]
 [ext_resource type="Texture2D" uid="uid://blqbe8trfim1l" path="res://UI/HowToButton.png" id="18_vn3xc"]
+[ext_resource type="AudioStream" uid="uid://dvr24esdeht52" path="res://Sounds/SoundsFX/Other/MenuBotton.mp3" id="21_wj05e"]
 
 [node name="UI" type="Control"]
 top_level = true
@@ -685,6 +686,11 @@ texture_pressed = ExtResource("16_t64iv")
 texture_hover = ExtResource("16_t64iv")
 texture_disabled = ExtResource("16_t64iv")
 texture_focused = ExtResource("16_t64iv")
+
+[node name="Menu" type="AudioStreamPlayer2D" parent="CanvasLayer/Pause" groups=["MenuButton"]]
+process_mode = 3
+stream = ExtResource("21_wj05e")
+volume_db = -10.0
 
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Left/Skill1" to="CanvasLayer/UI_SKILLS" method="_on_skill_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI_SKILLS/Left/Skill2" to="CanvasLayer/UI_SKILLS" method="_on_skill_2_pressed"]

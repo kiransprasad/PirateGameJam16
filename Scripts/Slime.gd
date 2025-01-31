@@ -38,18 +38,35 @@ var target = null
 @onready var sprite = $Sprite2D
 var spriteTimer = 0
 
+var hurtSound
+var seeSound
+var attackSound
+var deathSound
+
 func _ready() -> void:
 	var children = get_parent().get_children()
 	for child in children:
 		if child.is_in_group("Player"):
 			target = child
+		elif child.is_in_group("SlimeSee"):
+			seeSound = child
+		elif child.is_in_group("SlimeHurt"):
+			hurtSound = child
+		elif child.is_in_group("SlimeDie"):
+			deathSound = child
+		elif child.is_in_group("SlimeAttack"):
+			attackSound = child
+			
+	if not target:
+		queue_free()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	
 	print("SA")
 	
-	if position.distance_to(target.position) > 6000:
+	if position and target and target.position and position.distance_to(target.position) > 6000:
 		# Despawn if too far down
 		if global_position.y - target.global_position.y > 6000:
 			print("SFREE")
@@ -110,6 +127,7 @@ func changeState():
 		if sightIcon.value >= 100:
 			sightIcon.value = 100
 			currState = STATE.CHASE
+			seeSound.play()
 	elif currState == STATE.CHASE:
 		if position.distance_to(target.position) > CHASE_RANGE:
 			sightIcon.value = 99.9
@@ -122,6 +140,7 @@ func changeState():
 			currState = STATE.CHARGE
 	elif currState == STATE.CHARGE:
 		if attackIcon.value >= 100:
+			attackSound.play()
 			currState = STATE.ATTACK
 	elif currState == STATE.ATTACK:
 		if attackIcon.value <= 0:
@@ -187,6 +206,7 @@ func animate():
 			sprite.frame = (sprite.frame + 1) % 8
 
 func damage(dmgTaken : float) -> void:
+	hurtSound.play()
 	hpBar.set_visible(true)
 	hpBar.value -= dmgTaken * 100/MAX_HP 
 	if hpBar.value <= 0.02:
@@ -203,6 +223,7 @@ func knockback(kbVec : Vector2, fromPlayer : bool = false) -> void:
 		sightIcon.value = 100
 
 func die():
+	deathSound.play()
 	modulate.a -= 0.1
 	if modulate.a <= 0:
 		target.gainExp(10)

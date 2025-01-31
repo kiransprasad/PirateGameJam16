@@ -1,9 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cco1d6tc1yo8e"]
+[gd_scene load_steps=24 format=3 uid="uid://cco1d6tc1yo8e"]
 
 [ext_resource type="Texture2D" uid="uid://cd3i8h7q6vb51" path="res://Sprites/FloorDark.png" id="1_1xxwx"]
 [ext_resource type="Texture2D" uid="uid://b720l74mfr12s" path="res://Sprites/path.png" id="2_km5h2"]
+[ext_resource type="AudioStream" uid="uid://d16mgijc0575d" path="res://Sounds/SoundsFX/Player/Playerhurt(minidamage).mp3" id="5_eegly"]
 [ext_resource type="PackedScene" uid="uid://cwd0wriv0fk8v" path="res://Prefabs/Player.tscn" id="5_yqin0"]
+[ext_resource type="AudioStream" uid="uid://cl7bir6xfomfy" path="res://Sounds/SoundsFX/Slime/SlimeNoticePlayer.mp3" id="6_7islh"]
 [ext_resource type="Script" uid="uid://qbdahnmxlgql" path="res://Maps/WorldWrapper.gd" id="6_auhvp"]
+[ext_resource type="AudioStream" uid="uid://djyfd504g06vy" path="res://Sounds/SoundsFX/Slime/SlimeHurt.mp3" id="7_mcnkg"]
+[ext_resource type="AudioStream" uid="uid://bjrp1ic6qk02m" path="res://Sounds/SoundsFX/Slime/SlimeAttack.mp3" id="8_y6ybw"]
+[ext_resource type="AudioStream" uid="uid://bsxkkr2hnj3vi" path="res://Sounds/SoundsFX/Slime/SlimeDeath.mp3" id="9_5cr11"]
+[ext_resource type="AudioStream" uid="uid://dxb03ckooeckf" path="res://Sounds/SoundsFX/Wraith/WraithNoticePlayer.mp3" id="10_7vfcw"]
+[ext_resource type="AudioStream" uid="uid://clv38cgxc7k81" path="res://Sounds/SoundsFX/Wraith/WraithHurt.mp3" id="11_0hjei"]
+[ext_resource type="AudioStream" uid="uid://crbvm1dv38hp" path="res://Sounds/SoundsFX/Wraith/WraithAttack.mp3" id="12_phnoi"]
+[ext_resource type="AudioStream" uid="uid://t8gbxwoll273" path="res://Sounds/SoundsFX/Wraith/WraithDeath.mp3" id="13_c264h"]
+[ext_resource type="AudioStream" uid="uid://bge8gcg4l2u0y" path="res://Sounds/SoundsFX/Mimic/MimicHurt.mp3" id="14_yyswk"]
+[ext_resource type="AudioStream" uid="uid://btmaoinrgtcsm" path="res://Sounds/SoundsFX/Mimic/MimicAttack.mp3" id="15_ft7l0"]
+[ext_resource type="AudioStream" uid="uid://xkf2pi3u2u75" path="res://Sounds/SoundsFX/Mimic/MimicDeath.mp3" id="16_h1c65"]
+[ext_resource type="AudioStream" uid="uid://daixftiyq7i3" path="res://Sounds/Leverandsteelgate.mp3" id="17_7islh"]
+[ext_resource type="AudioStream" uid="uid://cc8juuimqketo" path="res://Sounds/SoundsFX/Other/Chest Open Sound.mp3" id="18_ajayg"]
+[ext_resource type="AudioStream" uid="uid://cl5yiaqbylonr" path="res://Sounds/SoundsFX/Player/SwordSwing.mp3" id="19_pl0p3"]
+[ext_resource type="AudioStream" uid="uid://cpohbxrykqlan" path="res://Sounds/SoundsFX/Player/FireballForm.mp3" id="20_7k4m4"]
+[ext_resource type="AudioStream" uid="uid://bci5vekcb3dne" path="res://Sounds/SoundsFX/Player/iceForm.mp3" id="21_lds3m"]
+[ext_resource type="AudioStream" uid="uid://b7wwltpp2686l" path="res://Sounds/SoundsFX/Music/Dutch Ponder 3.mp3" id="22_7islh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_axgqa"]
 vertices = PackedVector2Array(222, 7842, 7491.98, 7986, -7490.99, 7989.99, -228, 7842, 7466.01, -7978, 222, 7367, -7490, -7990.99, -228, 7367)
@@ -40,3 +58,81 @@ position = Vector2(0, 7900)
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_axgqa")
 script = ExtResource("6_auhvp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["AudioPlayerHurt"]]
+stream = ExtResource("5_eegly")
+volume_db = -5.0
+
+[node name="SlimeSee" type="AudioStreamPlayer2D" parent="." groups=["SlimeSee"]]
+stream = ExtResource("6_7islh")
+volume_db = -5.0
+
+[node name="SlimeHurt" type="AudioStreamPlayer2D" parent="." groups=["SlimeHurt"]]
+stream = ExtResource("7_mcnkg")
+volume_db = -5.0
+
+[node name="SlimeAttack" type="AudioStreamPlayer2D" parent="." groups=["SlimeAttack"]]
+stream = ExtResource("8_y6ybw")
+volume_db = -5.0
+
+[node name="SlimeDie" type="AudioStreamPlayer2D" parent="." groups=["SlimeDie"]]
+stream = ExtResource("9_5cr11")
+volume_db = -5.0
+
+[node name="SlimeSee2" type="AudioStreamPlayer2D" parent="." groups=["WraithSee"]]
+stream = ExtResource("10_7vfcw")
+volume_db = -5.0
+
+[node name="SlimeHurt2" type="AudioStreamPlayer2D" parent="." groups=["WraithHurt"]]
+stream = ExtResource("11_0hjei")
+volume_db = -5.0
+
+[node name="SlimeAttack2" type="AudioStreamPlayer2D" parent="." groups=["WraithAttack"]]
+stream = ExtResource("12_phnoi")
+volume_db = -5.0
+
+[node name="SlimeDie2" type="AudioStreamPlayer2D" parent="." groups=["WraithDie"]]
+stream = ExtResource("13_c264h")
+volume_db = -5.0
+
+[node name="SlimeHurt3" type="AudioStreamPlayer2D" parent="." groups=["MimicHurt"]]
+stream = ExtResource("14_yyswk")
+volume_db = -5.0
+
+[node name="SlimeAttack3" type="AudioStreamPlayer2D" parent="." groups=["MimicAttack"]]
+stream = ExtResource("15_ft7l0")
+volume_db = -5.0
+
+[node name="SlimeDie3" type="AudioStreamPlayer2D" parent="." groups=["MimicDie"]]
+stream = ExtResource("16_h1c65")
+volume_db = -5.0
+
+[node name="Lever" type="AudioStreamPlayer2D" parent="." groups=["LeverAudio"]]
+stream = ExtResource("17_7islh")
+volume_db = -5.0
+
+[node name="ChestOpen" type="AudioStreamPlayer2D" parent="." groups=["ChestOpen"]]
+stream = ExtResource("18_ajayg")
+volume_db = -5.0
+
+[node name="Sword" type="AudioStreamPlayer2D" parent="." groups=["SwordAudio"]]
+stream = ExtResource("19_pl0p3")
+volume_db = -5.0
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="." groups=["FireAudio"]]
+stream = ExtResource("20_7k4m4")
+volume_db = -5.0
+
+[node name="Ice" type="AudioStreamPlayer2D" parent="." groups=["IceAudio"]]
+stream = ExtResource("21_lds3m")
+volume_db = -5.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+process_mode = 3
+current = true
+
+[node name="BG" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("22_7islh")
+volume_db = -17.5
+autoplay = true

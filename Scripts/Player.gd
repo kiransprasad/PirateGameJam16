@@ -6,7 +6,7 @@ var currState = STATE.PANIC
 
 # Movement Variables
 var targetQueue = []
-const SPEED = 1750
+const SPEED = 600
 @onready var navigationAgent = $NavigationAgent2D
 var navLine = null
 var navMesh = null
@@ -32,6 +32,7 @@ var loadedNum = -1
 var attackTimer = 0
 
 @onready var pauseMenu = $Camera2D/UI/CanvasLayer/Pause
+var audioPlayer
 
 func _ready() -> void:
 	var children = get_parent().get_children()
@@ -40,6 +41,8 @@ func _ready() -> void:
 			navLine = child
 		elif child.is_in_group("NavMesh"):
 			navMesh = child
+		elif child.is_in_group("AudioPlayerHurt"):
+			audioPlayer = child
 			
 	
 	# Reset stats
@@ -224,6 +227,7 @@ func _on_sight_area_entered(area: Area2D) -> void:
 			targetQueue.push_front(area)
 
 func damage(dmgTaken : float) -> void:
+	audioPlayer.play()
 	stats.confidence -= dmgTaken / 5
 	stats.hp -= dmgTaken / 2.5
 	if stats.hp <= 0:
@@ -236,7 +240,7 @@ func gainExp(expAmt : float) -> void:
 	var deltaExp = stats.experience + expAmt
 	if deltaExp > 100:
 		stats.experience = 100
-		print("Level Up") # <?>
+		pauseMenu.setMenu(3)
 		stats.experience = deltaExp - 100
 	else:
 		stats.experience = deltaExp

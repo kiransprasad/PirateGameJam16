@@ -41,9 +41,21 @@ func use():
 		NAVMESH.add_child(ice)
 
 	if FIRE or ICE:
+		if FIRE:
+			for c in get_tree().root.get_child(0).get_children():
+				if c.is_in_group("FireAudio"):
+					c.play()
+		if ICE:
+			for c in get_tree().root.get_child(0).get_children():
+				if c.is_in_group("IceAudio"):
+					c.play()
 		set_visible(false)
 		NAVMESH.bake_navigation_polygon()
 		await get_tree().create_timer(5.1).timeout
 		NAVMESH.bake_navigation_polygon()
+	else:
+		for c in get_tree().root.get_child(0).get_children():
+			if c.is_in_group("SwordAudio"):
+				c.play()
 	
 	queue_free()

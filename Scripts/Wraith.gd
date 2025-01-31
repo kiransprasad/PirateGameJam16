@@ -30,12 +30,25 @@ var target = null
 @onready var hitbox = $CollisionShape2D
 var spriteTimer = 0
 
+var hurtSound
+var seeSound
+var attackSound
+var deathSound
+
 func _ready() -> void:
 	var children = get_parent().get_children()
 	for child in children:
 		if child.is_in_group("Player"):
 			target = child
-
+		elif child.is_in_group("WraithSee"):
+			seeSound = child
+		elif child.is_in_group("WraithHurt"):
+			hurtSound = child
+		elif child.is_in_group("WraithDie"):
+			deathSound = child
+		elif child.is_in_group("WraithAttack"):
+			attackSound = child
+			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	
@@ -65,6 +78,7 @@ func changeState():
 		if sightIcon.value >= 100:
 			sightIcon.value = 100
 			currState = STATE.CHASE
+			seeSound.play()
 	elif currState == STATE.CHASE:
 		if position.distance_to(target.position) > CHASE_RANGE:
 			sightIcon.value = 99.9
@@ -75,6 +89,7 @@ func changeState():
 			attackIcon.value = 0
 			attackIcon.set_visible(true)
 			currState = STATE.ATTACK
+			attackSound.play()
 	elif currState == STATE.ATTACK:
 		if position.distance_to(target.position) > 200:
 			sightIcon.set_visible(true)
@@ -140,14 +155,15 @@ func animate():
 		spriteTimer = 0
 		
 		if currState == STATE.DEAD:
-			if sprite.frame == 4: # <?>
+			if sprite.frame == 3:
 				die()
 			else:
-				sprite.frame += 1
+				sprite.frame = (sprite.frame + 1) % 4
 		else:
 			sprite.frame = (sprite.frame + 1) % 4
 
 func damage(dmgTaken : float) -> void:
+	hurtSound.play()
 	hpBar.set_visible(true)
 	hpBar.value -= dmgTaken * 100/MAX_HP 
 	if hpBar.value <= 0.02:
@@ -157,6 +173,7 @@ func knockback(_kbVec : Vector2, _fromPlayer : bool = false) -> void:
 	pass
 
 func die():
+	deathSound.play()
 	modulate.a -= 0.1
 	if modulate.a <= 0:
 		target.gainExp(20)
