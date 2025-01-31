@@ -1,16 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cikqk52nxfsq"]
+[gd_scene load_steps=10 format=3 uid="uid://cikqk52nxfsq"]
 
 [ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="1_fcdi1"]
 [ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="2_wevix"]
+[ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="3_g2426"]
 [ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_wevix"]
+[ext_resource type="PackedScene" path="res://Prefabs/Structural/SideWall.tscn" id="4_bsi2n"]
+[ext_resource type="PackedScene" uid="uid://cqveosi72dsyf" path="res://Prefabs/Structural/Wonder.tscn" id="5_k5y3i"]
+[ext_resource type="PackedScene" path="res://Prefabs/Structural/Chest.tscn" id="7_20u4r"]
+[ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="8_ltdxg"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ptmgb"]
 size = Vector2(4500, 4500)
 
 [node name="0" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [2303.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture = SubResource("PlaceholderTexture2D_ptmgb")
 offset = Vector2(2250, 2250)
 
@@ -29,22 +34,79 @@ position = Vector2(3932, 3946)
 [node name="EnemySpawnPoint5" parent="." instance=ExtResource("1_fcdi1")]
 position = Vector2(3775, 429)
 
-[node name="InteractPoint" parent="." instance=ExtResource("2_wevix")]
-position = Vector2(343, 2235)
-
-[node name="InteractPoint2" parent="." instance=ExtResource("2_wevix")]
-position = Vector2(4269, 2392)
-leverNum = 1
-
-[node name="InteractPoint3" parent="." instance=ExtResource("2_wevix")]
-position = Vector2(2234, 730)
-leverNum = 2
-
 [node name="Gate" parent="." groups=["Gate0"] instance=ExtResource("3_wevix")]
-position = Vector2(913, 2353)
+position = Vector2(837, 3224)
 
 [node name="Gate2" parent="." groups=["Gate1"] instance=ExtResource("3_wevix")]
-position = Vector2(4131, 1227)
+position = Vector2(3720, 2245)
 
 [node name="Gate3" parent="." groups=["Gate2"] instance=ExtResource("3_wevix")]
-position = Vector2(2705, 1161)
+position = Vector2(2234, 1179)
+
+[node name="Door" parent="." instance=ExtResource("3_g2426")]
+position = Vector2(859, 3189)
+
+[node name="SideWall" parent="." instance=ExtResource("4_bsi2n")]
+position = Vector2(50, 1666)
+
+[node name="Wall" parent="." instance=ExtResource("5_k5y3i")]
+position = Vector2(773, 4240)
+
+[node name="SideWall2" parent="." instance=ExtResource("4_bsi2n")]
+position = Vector2(42, 3206)
+
+[node name="Wall2" parent="." instance=ExtResource("5_k5y3i")]
+position = Vector2(3739, 4242)
+
+[node name="Wall3" parent="." instance=ExtResource("5_k5y3i")]
+position = Vector2(2387, 3197)
+
+[node name="Wall4" parent="." instance=ExtResource("5_k5y3i")]
+position = Vector2(3738, 3194)
+
+[node name="Door2" parent="." instance=ExtResource("3_g2426")]
+position = Vector2(3735, 2234)
+
+[node name="InteractPoint" parent="." instance=ExtResource("2_wevix")]
+position = Vector2(1352, 3219)
+
+[node name="Wall5" parent="." instance=ExtResource("5_k5y3i")]
+position = Vector2(2202, 2241)
+
+[node name="Wall6" parent="." instance=ExtResource("5_k5y3i")]
+position = Vector2(880, 2244)
+
+[node name="Door3" parent="." instance=ExtResource("3_g2426")]
+position = Vector2(2256, 1144)
+
+[node name="Wall7" parent="." instance=ExtResource("5_k5y3i")]
+position = Vector2(873, 1138)
+
+[node name="InteractPoint3" parent="." instance=ExtResource("2_wevix")]
+position = Vector2(1497, 1198)
+leverNum = 2
+
+[node name="InteractPoint2" parent="." instance=ExtResource("2_wevix")]
+position = Vector2(4267, 2249)
+leverNum = 1
+
+[node name="Wall8" parent="." instance=ExtResource("5_k5y3i")]
+position = Vector2(3743, 1142)
+
+[node name="SideWall3" parent="." instance=ExtResource("4_bsi2n")]
+position = Vector2(40, 757)
+
+[node name="Barrel" parent="." instance=ExtResource("7_20u4r")]
+position = Vector2(537, 1604)
+
+[node name="Barrel2" parent="." instance=ExtResource("8_ltdxg")]
+position = Vector2(1992, 2488)
+
+[node name="Barrel3" parent="." instance=ExtResource("8_ltdxg")]
+position = Vector2(3923, 3473)
+
+[node name="Barrel4" parent="." instance=ExtResource("8_ltdxg")]
+position = Vector2(4174, 1393)
+
+[node name="Barrel5" parent="." instance=ExtResource("8_ltdxg")]
+position = Vector2(927, 200)

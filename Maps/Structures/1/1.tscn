@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://byu3b3wol61oa"]
+[gd_scene load_steps=10 format=3 uid="uid://byu3b3wol61oa"]
 
 [ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="1_nehhy"]
 [ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="2_7j1kc"]
 [ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_rquqs"]
+[ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="4_xkt5h"]
+[ext_resource type="PackedScene" path="res://Prefabs/Structural/SideDoor.tscn" id="5_eqkqb"]
+[ext_resource type="PackedScene" uid="uid://cqveosi72dsyf" path="res://Prefabs/Structural/Wonder.tscn" id="6_ib2qd"]
+[ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="7_tl04g"]
+[ext_resource type="PackedScene" path="res://Prefabs/Structural/Chest.tscn" id="8_rolxp"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rcpwg"]
 size = Vector2(3000, 1500)
@@ -10,19 +15,39 @@ size = Vector2(3000, 1500)
 [node name="0" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0, 1, 1, 1)
 texture = SubResource("PlaceholderTexture2D_rcpwg")
 offset = Vector2(1500, 750)
 
 [node name="Barrel" parent="." instance=ExtResource("1_nehhy")]
-position = Vector2(1238, 670)
+position = Vector2(565, 411)
 
 [node name="Barrel2" parent="." instance=ExtResource("1_nehhy")]
-position = Vector2(1584, 670)
+position = Vector2(2568, 684)
 
 [node name="InteractPoint" parent="." instance=ExtResource("2_7j1kc")]
-position = Vector2(2152, 757)
+position = Vector2(293, 1290)
 
 [node name="Gate" parent="." groups=["Gate0"] instance=ExtResource("3_rquqs")]
-position = Vector2(2640, 1033)
+position = Vector2(2210, 1276)
+
+[node name="Door" parent="." instance=ExtResource("4_xkt5h")]
+position = Vector2(2228, 1236)
+
+[node name="Side" parent="." instance=ExtResource("5_eqkqb")]
+position = Vector2(49, 713)
+
+[node name="Wall" parent="." instance=ExtResource("6_ib2qd")]
+position = Vector2(771, 1237)
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("7_tl04g")]
+position = Vector2(521, 776)
+
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("7_tl04g")]
+position = Vector2(1373, 232)
+
+[node name="EnemySpawnPoint3" parent="." instance=ExtResource("7_tl04g")]
+position = Vector2(2143, 703)
+
+[node name="Barrel3" parent="." instance=ExtResource("8_rolxp")]
+position = Vector2(868, 57)
