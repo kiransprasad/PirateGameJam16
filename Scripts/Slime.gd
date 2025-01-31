@@ -47,16 +47,23 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	
+	print("SA")
+	
 	if position.distance_to(target.position) > 6000:
 		# Despawn if too far down
 		if global_position.y - target.global_position.y > 6000:
+			print("SFREE")
 			queue_free()
 
 		# Otherwise we will just not do anything until we are close enough to matter
 		return
 
+	print("SB")
+
 	changeState()
 	performState(delta)
+	
+	print("SC")
 	
 	animate()
 	
@@ -91,6 +98,7 @@ func _physics_process(delta):
 			else:
 				attackIcon.set_visible(false)
 				currState = STATE.RECHARGE
+	print("SD")
 
 func changeState():
 	if isDead:
@@ -142,12 +150,11 @@ func performState(delta):
 			if wanderTimer <= 0:
 				wanderTimer = 240 + randi() % 120
 				navigationAgent.target_position = position + Vector2(1, 0).rotated(randf_range(0, 2*PI)) * (WANDER_DISTANCE/3 + randf_range(0, 2 * WANDER_DISTANCE/3)) 
-				while not navigationAgent.is_target_reachable():
-					navigationAgent.target_position *= 0.9
-					if global_position.distance_to(navigationAgent.target_position) < 100:
-						break
-				
-		velocity = global_position.direction_to(navigationAgent.get_next_path_position()) * SPEED
+		
+		if not navigationAgent.is_target_reachable():
+			velocity = Vector2.ZERO
+		else:
+			velocity = global_position.direction_to(navigationAgent.get_next_path_position()) * SPEED
 	elif currState == STATE.CHASE:
 		navigationAgent.target_position = target.position
 		velocity = global_position.direction_to(navigationAgent.get_next_path_position()) * SPEED

@@ -9,7 +9,7 @@
 vertices = PackedVector2Array(222, 7842, 7491.98, 7986, -7490.99, 7989.99, -228, 7842, 7466.01, -7978, 222, 7367, -7490, -7990.99, -228, 7367)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-7500, -8001, -7501, 8000, 7502, 7996, 7476, -7988)])
-agent_radius = 200.0
+agent_radius = 150.0
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -36,7 +36,7 @@ joint_mode = 1
 [node name="Player" parent="." instance=ExtResource("5_yqin0")]
 position = Vector2(0, 7900)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." groups=["NavMesh"]]
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_axgqa")
 script = ExtResource("6_auhvp")

@@ -10,6 +10,5 @@ func interact():
 	for child in children:
 		if child.is_in_group("Gate" + str(leverNum)):
 			var loc = child.global_position
-			child.queue_free()
-			get_parent().get_parent().call_deferred("bake_navigation_polygon")
+			child.openGate()
 			return loc - Vector2(0, 300)

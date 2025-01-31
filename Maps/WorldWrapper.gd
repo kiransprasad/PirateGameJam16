@@ -10,7 +10,7 @@ var currScore : int = 0
 var tileNum = 0
 
 func _ready() -> void:
-	
+	pass
 	currScore = 0
 	score.set_meta("score", currScore)
 	
@@ -33,18 +33,15 @@ func _ready() -> void:
 	bake_navigation_polygon()
 
 func _physics_process(delta: float) -> void:
-	
 	var newScore : int = tileNum * 40 + floor((player.global_position.y - 7500) / -375)
 	if newScore > currScore:
 		currScore = newScore
 		score.set_meta("score", currScore)
 	
-	if player.global_position.x <= -7501:
+	if player.global_position.y <= -7501:
 		shiftWorld()
 
 func shiftWorld():
-	
-	print("ZZZZ")
 	
 	const shiftVec = Vector2(0, 15000)
 	
@@ -55,11 +52,10 @@ func shiftWorld():
 	# Teleport the enemies
 	for child in get_parent().get_children():
 		if child.is_in_group("Enemy"):
-			child.global_position -= shiftVec
+			child.global_position += shiftVec
 	for child in get_children():
-		child.global_position -= shiftVec
+		child.global_position += shiftVec
 		
-	print("AAAA")
 	
 	# Shift off old tiles and generate new ones
 	deleteTile(tiles[2])
@@ -67,7 +63,6 @@ func shiftWorld():
 	tiles[1] = tiles[0]
 	tiles[0] = generateTile(0)
 	
-	print("BBBB")
 	
 	bake_navigation_polygon()
 
@@ -85,7 +80,7 @@ func generateTile(tileNum : int):
 		
 		var randPos = randi() % 100
 		while (randPos % 10 > 10 - structureSize) or (floor(float(randPos)/10) >= 10 - structureSize):
-			randPos = randi() % 100
+			randPos -= 1 + randi() % 3
 		
 		var canPlace = true
 		for y in structureSize:
@@ -160,6 +155,7 @@ func generateTile(tileNum : int):
 				newTile.append(randomStructure(1, i, tileNum))
 				
 	return newTile
+	
 
 func randomStructure(structType : int, index : int, tileNum : int):
 	var newStructure = structures[structType].pick_random().instantiate()

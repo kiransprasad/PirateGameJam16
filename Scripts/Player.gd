@@ -9,6 +9,7 @@ var targetQueue = []
 const SPEED = 1750
 @onready var navigationAgent = $NavigationAgent2D
 var navLine = null
+var navMesh = null
 var knockbackVector = Vector2.ZERO
 
 const INTERACT_SECS = 3
@@ -37,6 +38,8 @@ func _ready() -> void:
 	for child in children:
 		if child.is_in_group("NavLine"):
 			navLine = child
+		elif child.is_in_group("NavMesh"):
+			navMesh = child
 			
 	
 	# Reset stats
@@ -52,26 +55,37 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	
+	print("PA")
 	# Update necessary stats
 	if not stats.panic:
 		stats.confidence += delta/5
 	if stats.confidence > 100:
 		stats.confidence = 100
 	
+	print("PB")
 	debugInit()
 	debug(targetQueue)
+	
+	print("PC")
 	
 	changeState()
 	performState(delta)
 	
+	print("PD")
+	
 	useSkills()
+	
+	print("PE")
 	
 	animate()
 	drawPath()
 	
+	print("PF")
+	
 	if knockbackVector.length() > 0.01:
 		velocity = knockbackVector
 		knockbackVector *= 0.75
+		
 	
 	move_and_slide()
 	
@@ -81,10 +95,10 @@ func changeState():
 		currState = STATE.PANIC
 	if currState == STATE.ADVANCE:
 		if navigationAgent.is_navigation_finished():
-			if targetQueue.back() is Vector2:
-				targetQueue.pop_back()
-			elif not targetQueue:
+			if not targetQueue:
 				$Sight/CollisionShape2D.shape.radius += 1
+			elif targetQueue.back() is Vector2:
+				targetQueue.pop_back()
 			else:
 				interactIcon.set_visible(true)
 				interactIcon.value = 0
@@ -93,10 +107,10 @@ func changeState():
 	elif currState == STATE.INTERACT:
 		if interactIcon.value >= 100:
 			interactIcon.set_visible(false)
-			
 			var returnVal = targetQueue.pop_back().interact()
-			if returnVal is Vector2:
-				targetQueue = [returnVal]
+			
+			if returnVal is int:
+				pauseMenu.setMenu(returnVal)
 			
 			currState = STATE.ADVANCE
 	elif currState == STATE.PANIC:

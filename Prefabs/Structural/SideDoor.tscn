@@ -48,7 +48,7 @@ occluder = SubResource("OccluderPolygon2D_gbce2")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 228)
-vertices = PackedVector2Array(-53.3333, 145.333, -46.6667, 794.667, 70.6667, 794.667, 72, 149.333)
+vertices = PackedVector2Array(-5.33333, 281.333, -8, 693.333, 13.3333, 694.667, 16, 284)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false
@@ -56,7 +56,7 @@ avoidance_enabled = false
 [node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 228)
-vertices = PackedVector2Array(-60, -1256, -60, -597.333, 72, -594.667, 74.6667, -1257.33)
+vertices = PackedVector2Array(-13.3333, -1158.67, -10.6667, -689.333, 17.3333, -693.333, 17.3333, -1158.67)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false

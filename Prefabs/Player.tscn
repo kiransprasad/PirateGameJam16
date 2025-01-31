@@ -55,6 +55,7 @@ vframes = 3
 frame = 9
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D"]
+visible = false
 z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
@@ -86,7 +87,7 @@ shape = SubResource("CapsuleShape2D_o4r2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -250)
-zoom = Vector2(0.02, 0.02)
+zoom = Vector2(0.2, 0.2)
 
 [node name="UI" parent="Camera2D" instance=ExtResource("4_javds")]
 z_index = 12

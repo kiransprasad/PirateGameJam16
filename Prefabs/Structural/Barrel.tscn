@@ -18,7 +18,7 @@ texture = ExtResource("1_njkoh")
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 100)
+position = Vector2(-1, 68)
 shape = SubResource("CircleShape2D_njkoh")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
@@ -28,7 +28,7 @@ occluder = SubResource("OccluderPolygon2D_oi6wr")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 125)
-vertices = PackedVector2Array(-125, -125, 0, 62, 125, -125)
+vertices = PackedVector2Array(-42, -117, 0, -35, 37, -118)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false

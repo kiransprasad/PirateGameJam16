@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1qanv0yn83ok"]
+[gd_scene load_steps=5 format=3 uid="uid://c1qanv0yn83ok"]
 
 [ext_resource type="Texture2D" uid="uid://hgap86li26n3" path="res://Sprites/Gate.png" id="1_d4qny"]
+[ext_resource type="Script" uid="uid://c6sgahco6ofxl" path="res://Scripts/Gate.gd" id="1_rq5dr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_njkoh"]
 radius = 100.0
@@ -10,6 +11,7 @@ polygon = PackedVector2Array(-340, 566, -370, -210, -230, -462, -14, -560, 212, 
 
 [node name="Gate" type="Node2D"]
 scale = Vector2(0.75, 0.75)
+script = ExtResource("1_rq5dr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -28,7 +30,7 @@ occluder = SubResource("OccluderPolygon2D_d4qny")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 125)
+position = Vector2(5.33333, 50.6667)
 vertices = PackedVector2Array(-145.333, -91.6667, 9.33333, 149.667, 128, -101)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
