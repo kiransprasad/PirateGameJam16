@@ -450,6 +450,7 @@ texture_focused = ExtResource("17_ibbdg")
 
 [node name="Title" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle"]
 self_modulate = Color(0, 1, 0.501961, 1)
+layout_mode = 0
 offset_left = -389.0
 offset_top = -748.0
 offset_right = 1915.0
@@ -469,6 +470,7 @@ offset_bottom = -708.0
 
 [node name="Followup" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
 self_modulate = Color(0, 1, 0.501961, 1)
+layout_mode = 0
 offset_top = 1032.0
 offset_right = 2304.0
 offset_bottom = 1182.0
@@ -479,6 +481,7 @@ horizontal_alignment = 1
 
 [node name="1" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
 self_modulate = Color(0, 1, 0.501961, 1)
+layout_mode = 0
 offset_left = -712.0
 offset_top = 896.0
 offset_right = 1592.0
@@ -490,6 +493,7 @@ horizontal_alignment = 1
 
 [node name="2" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
 self_modulate = Color(0, 1, 0.501961, 1)
+layout_mode = 0
 offset_left = -710.0
 offset_top = 1082.0
 offset_right = 1594.0
@@ -501,6 +505,7 @@ horizontal_alignment = 1
 
 [node name="3" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
 self_modulate = Color(0, 1, 0.501961, 1)
+layout_mode = 0
 offset_left = 688.0
 offset_top = 892.0
 offset_right = 2992.0
@@ -512,6 +517,7 @@ horizontal_alignment = 1
 
 [node name="4" type="Label" parent="CanvasLayer/Pause/SkillMenu/Middle/OverwriteText"]
 self_modulate = Color(0, 1, 0.501961, 1)
+layout_mode = 0
 offset_left = 690.0
 offset_top = 1078.0
 offset_right = 2994.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://do5bkn3exdife"]
 
 [ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="1_q8w6n"]
-[ext_resource type="PackedScene" path="res://Prefabs/Structural/SideWall.tscn" id="2_2saoe"]
+[ext_resource type="PackedScene" uid="uid://bmai3xn0apdkm" path="res://Prefabs/Structural/SideWall.tscn" id="2_2saoe"]
 [ext_resource type="PackedScene" uid="uid://cqveosi72dsyf" path="res://Prefabs/Structural/Wonder.tscn" id="3_eesfn"]
 [ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="4_kkb1m"]
 [ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="5_vlhuu"]
@@ -42,9 +42,6 @@ position = Vector2(783, 2745)
 
 [node name="Door" parent="." instance=ExtResource("4_kkb1m")]
 position = Vector2(2227, 2740)
-
-[node name="Wall2" parent="." instance=ExtResource("3_eesfn")]
-position = Vector2(-3525, 4828)
 
 [node name="EnemySpawnPoint" parent="." instance=ExtResource("5_vlhuu")]
 position = Vector2(725, 1974)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq600ky8tne8e"]
+
+[ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="1_kghdb"]
+[ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="3_t78tx"]
+[ext_resource type="PackedScene" uid="uid://cqveosi72dsyf" path="res://Prefabs/Structural/Wonder.tscn" id="7_fcyru"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y7wcg"]
+size = Vector2(3000, 1500)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2k6eh"]
+size = Vector2(1500, 1500)
+
+[node name="0" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(6, 0)
+texture = SubResource("PlaceholderTexture2D_y7wcg")
+offset = Vector2(1500, 750)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-6, 0)
+texture = SubResource("PlaceholderTexture2D_2k6eh")
+offset = Vector2(750, 2250)
+
+[node name="Barrel" parent="." instance=ExtResource("1_kghdb")]
+position = Vector2(562, 892)
+
+[node name="Barrel2" parent="." instance=ExtResource("1_kghdb")]
+position = Vector2(1075, 1953)
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("3_t78tx")]
+position = Vector2(419, 1844)
+
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("3_t78tx")]
+position = Vector2(2492, 987)
+
+[node name="EnemySpawnPoint3" parent="." instance=ExtResource("3_t78tx")]
+position = Vector2(453, 233)
+
+[node name="EnemySpawnPoint4" parent="." instance=ExtResource("3_t78tx")]
+position = Vector2(1276, 1174)
+
+[node name="Wall" parent="." instance=ExtResource("7_fcyru")]
+position = Vector2(2233, 1232)

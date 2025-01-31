@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="2_311ah"]
 [ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_6ptos"]
 [ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="4_0b65l"]
-[ext_resource type="PackedScene" path="res://Prefabs/Structural/Chest.tscn" id="5_1xxf4"]
 [ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="6_16pwh"]
+[ext_resource type="PackedScene" uid="uid://bmai3xn0apdkm" path="res://Prefabs/Structural/SideWall.tscn" id="6_035ts"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y7wcg"]
 size = Vector2(3000, 1500)
@@ -27,10 +27,7 @@ texture = SubResource("PlaceholderTexture2D_2k6eh")
 offset = Vector2(750, 2250)
 
 [node name="Barrel2" parent="." instance=ExtResource("1_035ts")]
-position = Vector2(952, 696)
-
-[node name="Barrel3" parent="." instance=ExtResource("1_035ts")]
-position = Vector2(444, 2049)
+position = Vector2(863, 1730)
 
 [node name="Door" parent="." instance=ExtResource("2_311ah")]
 position = Vector2(748, 2750)
@@ -39,22 +36,22 @@ position = Vector2(748, 2750)
 position = Vector2(722, 2790)
 
 [node name="Lever" parent="." instance=ExtResource("4_0b65l")]
-position = Vector2(1216, 2757)
-
-[node name="Barrel" parent="." instance=ExtResource("5_1xxf4")]
-position = Vector2(2714, 136)
+position = Vector2(236, 2742)
 
 [node name="EnemySpawnPoint" parent="." instance=ExtResource("6_16pwh")]
-position = Vector2(1091, 1540)
+position = Vector2(1217, 2228)
 
 [node name="EnemySpawnPoint2" parent="." instance=ExtResource("6_16pwh")]
 position = Vector2(2733, 997)
 
 [node name="EnemySpawnPoint3" parent="." instance=ExtResource("6_16pwh")]
-position = Vector2(318, 261)
+position = Vector2(2383, 579)
 
 [node name="EnemySpawnPoint4" parent="." instance=ExtResource("6_16pwh")]
 position = Vector2(1880, 381)
 
 [node name="EnemySpawnPoint5" parent="." instance=ExtResource("6_16pwh")]
-position = Vector2(248, 1399)
+position = Vector2(2139, 1129)
+
+[node name="SideWall" parent="." instance=ExtResource("6_035ts")]
+position = Vector2(70, 792)
