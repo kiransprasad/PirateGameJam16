@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="2_wevix"]
 [ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="3_g2426"]
 [ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_wevix"]
-[ext_resource type="PackedScene" uid="uid://bjpiboewmjw6d" path="res://Prefabs/Structural/SideWall.tscn" id="4_bsi2n"]
+[ext_resource type="PackedScene" uid="uid://bmai3xn0apdkm" path="res://Prefabs/Structural/SideWall.tscn" id="4_bsi2n"]
 [ext_resource type="PackedScene" uid="uid://cqveosi72dsyf" path="res://Prefabs/Structural/Wonder.tscn" id="5_k5y3i"]
-[ext_resource type="PackedScene" uid="uid://opr8r4icvii2" path="res://Prefabs/Structural/Chest.tscn" id="7_20u4r"]
+[ext_resource type="PackedScene" uid="uid://cg10rcny3lgft" path="res://Prefabs/Structural/Chest.tscn" id="7_20u4r"]
 [ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="8_ltdxg"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ptmgb"]
@@ -16,6 +16,7 @@ size = Vector2(4500, 4500)
 metadata/_edit_horizontal_guides_ = [2303.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("PlaceholderTexture2D_ptmgb")
 offset = Vector2(2250, 2250)
 

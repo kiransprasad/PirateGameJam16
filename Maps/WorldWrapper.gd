@@ -44,6 +44,8 @@ func _physics_process(delta: float) -> void:
 
 func shiftWorld():
 	
+	print("ZZZZ")
+	
 	const shiftVec = Vector2(0, 15000)
 	
 	tileNum += 1
@@ -56,12 +58,16 @@ func shiftWorld():
 			child.global_position -= shiftVec
 	for child in get_children():
 		child.global_position -= shiftVec
+		
+	print("AAAA")
 	
 	# Shift off old tiles and generate new ones
 	deleteTile(tiles[2])
 	tiles[2] = tiles[1]
 	tiles[1] = tiles[0]
 	tiles[0] = generateTile(0)
+	
+	print("BBBB")
 	
 	bake_navigation_polygon()
 

@@ -14,6 +14,6 @@ texture = SubResource("PlaceholderTexture2D_rcpwg")
 offset = Vector2(750, 750)
 
 [node name="Barrel" parent="." instance=ExtResource("1_6rdqx")]
-position = Vector2(725, 658)
+position = Vector2(442, 254)
 
 [node name="EnemySpawnPoint" parent="." instance=ExtResource("2_3xu1r")]

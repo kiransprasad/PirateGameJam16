@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bjfosvpmelg5u" path="res://Prefabs/Structural/Lever.tscn" id="1_sj48x"]
 [ext_resource type="PackedScene" uid="uid://c5w0mo23hb2s" path="res://Prefabs/Structural/EnemySpawnPoint.tscn" id="2_ayjwk"]
-[ext_resource type="PackedScene" uid="uid://bjpiboewmjw6d" path="res://Prefabs/Structural/SideWall.tscn" id="3_40vcf"]
+[ext_resource type="PackedScene" uid="uid://bmai3xn0apdkm" path="res://Prefabs/Structural/SideWall.tscn" id="3_40vcf"]
 [ext_resource type="PackedScene" uid="uid://c1qanv0yn83ok" path="res://Prefabs/Structural/Gate.tscn" id="3_ayjwk"]
 [ext_resource type="PackedScene" uid="uid://cqveosi72dsyf" path="res://Prefabs/Structural/Wonder.tscn" id="4_th1sv"]
 [ext_resource type="PackedScene" uid="uid://i0ymqix61dug" path="res://Prefabs/Structural/Door.tscn" id="5_0iglj"]
-[ext_resource type="PackedScene" uid="uid://c5oxasowvfjl8" path="res://Prefabs/Structural/SideDoor.tscn" id="6_7n3go"]
-[ext_resource type="PackedScene" uid="uid://opr8r4icvii2" path="res://Prefabs/Structural/Chest.tscn" id="8_0dkgi"]
+[ext_resource type="PackedScene" path="res://Prefabs/Structural/SideDoor.tscn" id="6_7n3go"]
+[ext_resource type="PackedScene" uid="uid://cg10rcny3lgft" path="res://Prefabs/Structural/Chest.tscn" id="8_0dkgi"]
 [ext_resource type="PackedScene" uid="uid://bnydrmbqv20ku" path="res://Prefabs/Structural/Barrel.tscn" id="9_gwg1q"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k8vmu"]
@@ -16,6 +16,7 @@ size = Vector2(3000, 3000)
 [node name="0" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.501961, 1, 1, 1)
 texture = SubResource("PlaceholderTexture2D_k8vmu")
 offset = Vector2(1500, 1500)
